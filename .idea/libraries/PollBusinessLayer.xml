@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="PollBusinessLayer">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/PollBusinessLayer.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
