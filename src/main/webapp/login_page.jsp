@@ -17,7 +17,7 @@
     <h1>Please login to continue</h1>
 </div>
 
-<form class="" method="post" id="" action="index.jsp">
+<form class="" method="post" id="" action="login_page.jsp">
     <div class="" role="alert">
         <%--Display error--%>
         <% for (int i = 0; i < errors.size(); i++) { %>
