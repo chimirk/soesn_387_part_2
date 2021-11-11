@@ -9,7 +9,7 @@
     String username = "";
     String userpassword = "";
     ArrayList<String> errors = new ArrayList();
-    String pathName = "/Users/pierrickcatalo/IdeaProjects/soesn_387_part_2/src/main/webapp/users.json";
+    String pathName = "../webapps/soen_387_part_2_war/WEB-INF/users.json";
 
     if ("POST".equals(request.getMethod())) {
         if (request.getParameter("login_btn") != null) {
@@ -49,9 +49,7 @@
 
                 //if loggedInUser is not null, we are logged in
                 if (loggedInUser != null) {
-%>
-<h1>Logged In!</h1>
-<%
+                    %><h1>Logged In!</h1><%
                 } else {
                     errors.add("Wrong username/password combination");
                 }
