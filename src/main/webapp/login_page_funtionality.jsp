@@ -9,7 +9,7 @@
     String username = "";
     String userpassword = "";
     ArrayList<String> errors = new ArrayList();
-    String pathName = "path/users.json";
+    String pathName = "path/IdeaProjects/soesn_387_part_2/src/main/webapp/users.json";
 
     if ("POST".equals(request.getMethod())) {
         if (request.getParameter("login_btn") != null) {
@@ -39,8 +39,8 @@
 
                 //check if we have a user match
                 User loggedInUser = null;
-                for(int i = 0; i < users.length; i++) {
-                    if(users[i].id.equals(username) &&
+                for (int i = 0; i < users.length; i++) {
+                    if (users[i].id.equals(username) &&
                             users[i].hashedPassword.equals(userpassword)) {
                         loggedInUser = users[i];
                         break;
@@ -49,7 +49,9 @@
 
                 //if loggedInUser is not null, we are logged in
                 if (loggedInUser != null) {
-
+%>
+<h1>Logged In!</h1>
+<%
                 } else {
                     errors.add("Wrong username/password combination");
                 }
@@ -57,7 +59,6 @@
             }  //end no errors
         }
     }
-
 %>
 <%!
     private static User[] readJsonFile(String pathName) throws IOException {
