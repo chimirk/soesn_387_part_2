@@ -1,49 +1,39 @@
 package com.main;
 
-import com.dao.PollDAO;
-import com.pollmanager.Choice;
-import com.pollmanager.Poll;
-import com.pollmanager.PollException;
-import com.pollmanager.PollStatus;
+import javax.json.Json;
+import javax.json.JsonArray;
+import javax.json.JsonObject;
+import java.io.FileWriter;
 
-import java.util.ArrayList;
 
 public class Main {
-    public static void main(String[] args) throws PollException {
-        Choice choice1 = new Choice("text1", "description1");
-        Choice choice2 = new Choice("text2", "description2");
 
-        ArrayList<Choice> choices = new ArrayList<>();
-        choices.add(choice1);
-        choices.add(choice2);
+    public static void main(String[] args) {
+        JsonObject jsonObject1 = Json.createObjectBuilder()
+                .add("username", "username1")
+                .add("password", "password1")
+                .build();
 
-        Poll poll = new Poll("Title1", "Question1");
-        poll.setStatus(PollStatus.CREATED);
-        poll.setChoices(choices);
+        JsonObject jsonObject2 = Json.createObjectBuilder()
+                .add("username", "username2")
+                .add("password", "password2")
+                .build();
 
-        PollDAO pollDAO = new PollDAO();
-        pollDAO.insertPoll(poll);
+        JsonArray jsonArray = Json.createArrayBuilder()
+                .add(jsonObject1)
+                .add(jsonObject2)
+                .build();
 
-        poll.setTitle("title2");
-        poll.setQuestion("question4");
-        Choice choice3 = new Choice("text_updated10", "description_updated10");
-        Choice choice4 = new Choice("text_updated20", "description_updated20");
-        choices = new ArrayList<>();
-        choices.add(choice3);
-        choices.add(choice4);
-        poll.setChoices(choices);
-
-        pollDAO.updatePoll(poll, 11);
-
-        pollDAO.deletePoll(6);
-
-        Poll poll_selected = pollDAO.selectPollById(5);
-        //System.out.println(poll_selected.getTitle());
-
-
-
+        try(FileWriter file = new FileWriter("users.json")) {
+            file.write(jsonArray.toString());
+            file.flush();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
 
     }
+
+
 }
