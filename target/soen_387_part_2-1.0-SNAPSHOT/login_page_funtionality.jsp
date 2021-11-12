@@ -6,12 +6,13 @@
 <%@ page import="java.io.IOException" %>
 <%@ page import="com.google.gson.Gson" %>
 <%
-    String username = "";
+    /*String username = "";
     String userpassword = "";
     ArrayList<String> errors = new ArrayList();
-    String pathName = "../webapps/soen_387_part_2_war/WEB-INF/users.json";
+    String pathName = "C:\\Users\\tigerrrr\\IdeaProjects\\soen_387_part_2\\src\\main\\webapp\\WEB-INF\\users.json";
+    */
 
-    if ("POST".equals(request.getMethod())) {
+    /*if ("POST".equals(request.getMethod())) {
         if (request.getParameter("login_btn") != null) {
             username = request.getParameter("username");
             if (username.isEmpty()) errors.add("Username is required");
@@ -45,21 +46,21 @@
                         loggedInUser = users[i];
                         break;
                     }
-                }
+                }*/
 
-                //if loggedInUser is not null, we are logged in
+               /* //if loggedInUser is not null, we are logged in
                 if (loggedInUser != null) {
                     %><h1>Logged In!</h1><%
                 } else {
                     errors.add("Wrong username/password combination");
-                }
+                }*/
 
-            }  //end no errors
+           /* }  //end no errors
         }
-    }
+    }*/
 %>
 <%!
-    private static User[] readJsonFile(String pathName) throws IOException {
+    /*private static User[] readJsonFile(String pathName) throws IOException {
         String jsonText = "";
 
         try (BufferedReader br = new BufferedReader(new FileReader(pathName))) {
@@ -81,12 +82,12 @@
         return users;
         //parse jsonText to array of objects
 
-    }
+    }*/
 
-    public class User {
+   /* public class User {
         public String id;
         public String fullName;
         public String email;
         public String hashedPassword;
-    }
+    }*/
 %>

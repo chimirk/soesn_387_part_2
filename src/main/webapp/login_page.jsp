@@ -1,12 +1,10 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: tigerrrr
-  Date: 11/10/2021
-  Time: 4:13 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="login_page_funtionality.jsp"%>
+
+<%
+    ArrayList errors = (ArrayList) request.getAttribute("errors");
+%>
+
 <html>
 <head>
     <title>Login Page</title>
@@ -17,11 +15,13 @@
     <h1>Please login to continue</h1>
 </div>
 
-<form class="" method="post" id="" action="login_page.jsp">
+<form class="" method="post" id="" action="${pageContext.request.contextPath}/LoginServlet">
     <div class="" role="alert">
         <%--Display error--%>
+        <% if (errors != null) { %>
         <% for (int i = 0; i < errors.size(); i++) { %>
         <p><%= errors.get(i)%></p>
+        <% } %>
         <% } %>
 
     </div>

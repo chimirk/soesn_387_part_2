@@ -1,4 +1,4 @@
-<%--
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: tigerrrr
   Date: 11/10/2021
@@ -6,30 +6,50 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--<%@ include file="login_page_funtionality.jsp"%>--%>
+
+<%
+    ArrayList errors = (ArrayList) request.getAttribute("errors");
+%>
 <html>
 <head>
-    <title>Title</title>
+    <title>Login Page</title>
 </head>
 <body>
-<form>
-    <div>
-        <label></label>
-        <input type="text">
+
+<div>
+    <h1>Please login to continue</h1>
+</div>
+
+<form class="" method="post" id="" action="${pageContext.request.contextPath}/LoginServlet">
+    <div class="" role="alert">
+        <%--Display error--%>
+        <% if (errors != null) { %>
+        <% for (int i = 0; i < errors.size(); i++) { %>
+        <p><%= errors.get(i)%></p>
+        <% } %>
+            <% } %>
+
     </div>
 
-    <div>
-        <label></label>
-        <input type="password">
+    <div class="">
+        <label class="" for="username">Username</label>
+        <input type="text" id="username" class="" name="username">
     </div>
 
-    <div>
-        <button>Login</button>
+    <div class="">
+        <label class="" for="userpassword">Password</label>
+        <input type="password" id="userpassword" name="userpassword">
     </div>
-    <p class="col-sm-offset-2 col-sm-10">
+
+    <div class="">
+        <button type="submit" class="" name="login_btn">Login</button>
+    </div>
+
+    <p class="">
         Not yet a member? <a href="">Sign up</a>
     </p>
 
 </form>
-
 </body>
 </html>
