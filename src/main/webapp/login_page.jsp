@@ -41,7 +41,7 @@
     </div>
 
     <p class="">
-        Not yet a member? <a href="${pageContext.request.contextPath}/LoginServlet?signup=TRUE">Sign up</a>
+        Not yet a member? <a href="${pageContext.request.contextPath}/LoginServlet?signup=TRUE">Register</a>
     </p>
 
 </form>
