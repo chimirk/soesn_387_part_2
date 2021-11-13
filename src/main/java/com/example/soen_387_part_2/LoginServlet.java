@@ -11,12 +11,23 @@ import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.Enumeration;
 
 @WebServlet(name = "LoginServlet", value = "/LoginServlet")
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        Enumeration<String> parameterNames = request.getParameterNames();
+        while (parameterNames.hasMoreElements()) {
+            String parameterName = parameterNames.nextElement();
+            String[] parameterValues = request.getParameterValues(parameterName);
+            for (int i = 0; i < parameterValues.length; i++) {
+                String parameterValue = parameterValues[i];
+                if (parameterValue.equals("TRUE")) {
+                    response.sendError(500, "REGISTRATION IS NOT IMPLEMENTED YET. PLEASE TRY AGAIN LATER.");
+                }
+            }
+        }
     }
 
     @Override
