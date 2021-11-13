@@ -7,6 +7,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String pathName = "C:\\Users\\tigerrrr\\IdeaProjects\\soen_387_part_2\\src\\main\\webapp\\WEB-INF\\users.json";
+        URL url = this.getClass().getClassLoader().getResource("/users.json");
         String username = "";
         String userpassword = "";
         ArrayList<String> errors = new ArrayList();
@@ -47,7 +48,7 @@ public class LoginServlet extends HttpServlet {
                 e.printStackTrace();
             }
 
-            User[] users = JsonReader.readJsonFile(pathName);
+            User[] users = JsonReader.readJsonFile(url.getPath());
             //check if we have a user match
             User loggedInUser = null;
             for (int i = 0; i < users.length; i++) {
