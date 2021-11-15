@@ -132,7 +132,15 @@
         } catch (PollManagerException e) {
             e.printStackTrace();
         }
+    } else if (request.getParameter("delete") != null) {
+        try {
+            pollManager.deletePoll(userID, pollID);
+            response.sendRedirect("PollManagerPage.jsp");
+        } catch (PollManagerException e) {
+            e.printStackTrace();
+        }
     }
+
     session.setAttribute("index", index);
     session.setAttribute("userID", userID);
 %>

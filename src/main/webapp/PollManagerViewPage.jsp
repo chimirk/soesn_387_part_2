@@ -63,6 +63,7 @@
                     <% if(Objects.nonNull(currentPoll) && currentPoll.getStatus() == PollStatus.CREATED) { %>
                     <button class="btn btn-warning" type="submit" name="update" value="update"><span class="fs-5">Update</span></button>
                     <button class="btn btn-success" type="submit"  name="run" value="run"><span class="fs-5">Run</span></button>
+                    <button class="btn btn-lg btn-danger" type="submit" name="delete" value="delete"><span class="fs-5">Delete</span></button>
                     <% } else if (Objects.nonNull(currentPoll)  && currentPoll.getStatus() == PollStatus.RUNNING) {%>
                     <button class="btn btn-warning" type="submit" name="update" value="update"><span class="fs-5">Update</span></button>
                     <button class="btn btn-lg btn-info" type="submit" name="release" value="release"><span class="fs-5">Release</span></button>
