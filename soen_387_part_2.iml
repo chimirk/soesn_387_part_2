@@ -12,6 +12,7 @@
         <sourceRoots>
           <root url="file://$MODULE_DIR$/src/main/java" />
           <root url="file://$MODULE_DIR$/src/main/resources" />
+          <root url="file://$MODULE_DIR$/src/main/webapp/WEB-INF/jsonfile" />
         </sourceRoots>
       </configuration>
     </facet>
@@ -34,6 +35,16 @@
     <orderEntry type="library" name="jstl-1.2" level="project" />
     <orderEntry type="library" name="mysql-connector-java-8.0.26" level="project" />
     <orderEntry type="library" name="protobuf-java-3.11.4" level="project" />
+    <orderEntry type="library" name="business_layer_part2" level="project" />
+    <orderEntry type="library" name="business_layer_part2 (2)" level="project" />
+    <orderEntry type="library" name="business_layer_part2 (3)" level="project" />
+    <orderEntry type="library" name="business_layer_part2 (4)" level="project" />
+    <orderEntry type="library" name="business_layer_part2 (5)" level="project" />
+    <orderEntry type="library" name="business_layer_part2 (6)" level="project" />
+    <orderEntry type="library" name="business_layer_part2 (7)" level="project" />
+    <orderEntry type="library" name="business_layer_part2 (8)" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.27" level="project" />
+    <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.11.4" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.json.bind:javax.json.bind-api:1.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.json:javax.json-api:1.1.4" level="project" />
     <orderEntry type="library" name="Maven: javax.mvc:javax.mvc-api:1.0.0" level="project" />
@@ -44,6 +55,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-commons:1.7.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.7.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-engine:1.7.1" level="project" />
-    <orderEntry type="library" name="business_layer_part2" level="project" />
+    <orderEntry type="library" name="business_layer_part2 (9)" level="application" />
   </component>
 </module>

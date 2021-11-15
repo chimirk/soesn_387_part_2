@@ -73,7 +73,7 @@ public class LoginServlet extends HttpServlet {
             if (loggedInUser != null) {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("loggedInUser", loggedInUser);
-                response.sendRedirect("UserPage.jsp");
+                response.sendRedirect("PollManagerPage.jsp");
             } else {
                 errors.add("Wrong username/password combination");
                 request.setAttribute("errors", errors);
