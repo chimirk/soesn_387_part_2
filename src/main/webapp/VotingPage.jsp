@@ -53,6 +53,7 @@
             </div>
             <div class="card-body ">
                 <form  class="w-100 " action="${pageContext.request.contextPath}/PollServlet" method="get">
+                    <input type="hidden" value="<%= poll.getPollID() %>" name="pollID">
                     <div class="d-flex justify-content-center">
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="dataFormat" id="txt" value="txt">
