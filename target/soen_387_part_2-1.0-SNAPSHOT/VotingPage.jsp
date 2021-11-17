@@ -1,9 +1,12 @@
 <%@ page import="com.pollmanager.*" %>
-<%@ page import="java.util.Objects" %>
-<%--<%@ page errorPage="errorPage.jsp" %>--%>
+<%@ page errorPage="errorPage.jsp" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="components/header.jsp"%>
+<%@ include file="chartService.jsp"%>
 <div class="container">
+    <div class="col-0 justify-content-end">
+        <a class="btn btn-primary" href="AccessVotePage.jsp">Back</a>
+    </div>
     <div class="d-flex align-items-center justify-content-center">
 
         <% if(request.getSession().getAttribute("poll") != null){ %>
@@ -51,8 +54,27 @@
             <div class="card-body">
                 <div id="piechart" style="width: 900px; height: 500px;"></div>
             </div>
-            <div class="card-body d-grid gap-2 col-6 mx-auto">
-                <a class="btn btn-primary" href="${pageContext.request.contextPath}/PollServlet">Download Results</a>
+            <div class="card-body ">
+                <form  class="w-100 " action="${pageContext.request.contextPath}/PollServlet" method="get">
+                    <input type="hidden" value="<%= poll.getPollID() %>" name="pollID">
+                    <div class="d-flex justify-content-center">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="dataFormat" id="txt" value="txt">
+                            <label class="form-check-label" for="txt">Plain Text</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="dataFormat" id="xml" value="xml">
+                            <label class="form-check-label" for="xml">XML</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="dataFormat" id="json" value="json">
+                            <label class="form-check-label" for="json">JSON</label>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <input type="submit" class="btn btn-primary" name="Download" value="Download"/>
+                    </div>
+                </form>
             </div>
         </div>
         <% } }else{ %>

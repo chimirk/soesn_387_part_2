@@ -1,6 +1,9 @@
 package com.example.soen_387_part_2;
 
-import com.pollmanager.*;
+import com.pollmanager.Poll;
+import com.pollmanager.PollManager;
+import com.pollmanager.PollManagerException;
+import com.pollmanager.PollStatus;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,12 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.Objects;
 
 @WebServlet(name = "PollServlet", value = "/PollServlet")
 public class PollServlet extends HttpServlet {
-   private String message;
+    private String message;
 
     public void init() {
         message = "";
@@ -23,45 +25,93 @@ public class PollServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-//
-//        PollManager pollManager = (PollManager) request.getSession().getAttribute("poll_manager");
-//        String poll_title = (String) request.getSession().getAttribute("poll_title");
-//
-//        PrintWriter printWriter = response.getWriter();
-//        StringBuilder filename = new StringBuilder();
-//        String pollID = request.getParameter("pollID");
-//
-//        try {
-//            pollManager.downloadPollDetails(printWriter, filename, pollID);
-//        } catch (PollManagerException e) {
-//            response.sendError(500, e.getMessage());
-//            return;
-//        }
-//
-//
-//        String name = filename.toString().substring(0, poll_title.length());
-//
-//        if ((filename.toString().endsWith(".txt")) && (name.compareTo(poll_title) == 0)) {
-//
-//            String headerKey = "Content-Disposition";
-//            String headerValue = String.format("attachment; filename=\"%s\"", filename.toString());
-//            response.setContentType("application/octet-stream");
-//            response.setHeader(headerKey, headerValue);
-//            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1
-//            response.setHeader("Pragma", "no-cache"); // HTTP 1.0
-//            response.setDateHeader("Expires", 0); // Proxies.
-//
-//            printWriter.close();
-//
-//            String destination = "/UserPage.jsp";
-//            RequestDispatcher dispatcher = request.getRequestDispatcher(destination);
-//            dispatcher.forward(request, response);
-//
-//        } else {
-//
-//            printWriter = null;
-//            response.sendError(500, "The filename does not match the title or the format string is not .txt");
-//        }
+
+        PollManager pollManager = new PollManager();
+        Poll poll = (Poll) request.getSession().getAttribute("poll");
+        String format = request.getParameter("dataFormat");
+
+        StringBuilder filename = null;
+        String pollID = "";
+        PrintWriter printWriter = null;
+        filename = new StringBuilder();
+        pollID = poll.getPollID();
+        if (format.equals("txt")) {
+            printWriter = response.getWriter();
+            try {
+                pollManager.downloadPollDetails(printWriter, filename, pollID, "txt");
+            } catch (PollManagerException e) {
+                response.sendError(500, e.getMessage());
+                return;
+            }
+        } else if (format.equals("xml")) {
+            printWriter = response.getWriter();
+            try {
+                pollManager.downloadPollDetails(printWriter, filename, pollID, "xml");
+            } catch (PollManagerException e) {
+                response.sendError(500, e.getMessage());
+                return;
+            }
+        } else if (format.equals("json")) {
+            printWriter = response.getWriter();
+            try {
+                pollManager.downloadPollDetails(printWriter, filename, pollID, "json");
+            } catch (PollManagerException e) {
+                response.sendError(500, e.getMessage());
+                return;
+            }
+        }
+
+        String name = Objects.requireNonNull(filename).substring(0, poll.getTitle().length());
+        if (name.compareTo(poll.getTitle()) == 0) {
+            if (filename.toString().endsWith(".txt")) {
+                String headerKey = "Content-Disposition";
+                String headerValue = String.format("attachment; filename=\"%s\"", filename.toString());
+                response.setContentType("application/octet-stream");
+                response.setHeader(headerKey, headerValue);
+                response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1
+                response.setHeader("Pragma", "no-cache"); // HTTP 1.0
+                response.setDateHeader("Expires", 0); // Proxies.
+
+                Objects.requireNonNull(printWriter).close();
+
+                String destination = "/VotingPage.jsp";
+                RequestDispatcher dispatcher = request.getRequestDispatcher(destination);
+                dispatcher.forward(request, response);
+
+            } else if (filename.toString().endsWith(".xml")) {
+                String headerKey = "Content-Disposition";
+                String headerValue = String.format("attachment; filename=\"%s\"", filename.toString());
+                response.setContentType("application/octet-stream");
+                response.setHeader(headerKey, headerValue);
+                response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1
+                response.setHeader("Pragma", "no-cache"); // HTTP 1.0
+                response.setDateHeader("Expires", 0); // Proxies.
+
+                Objects.requireNonNull(printWriter).close();
+
+                String destination = "/VotingPage.jsp";
+                RequestDispatcher dispatcher = request.getRequestDispatcher(destination);
+                dispatcher.forward(request, response);
+
+            } else if (filename.toString().endsWith(".json")) {
+                String headerKey = "Content-Disposition";
+                String headerValue = String.format("attachment; filename=\"%s\"", filename.toString());
+                response.setContentType("application/octet-stream");
+                response.setHeader(headerKey, headerValue);
+                response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1
+                response.setHeader("Pragma", "no-cache"); // HTTP 1.0
+                response.setDateHeader("Expires", 0); // Proxies.
+
+                Objects.requireNonNull(printWriter).close();
+
+                String destination = "/VotingPage.jsp";
+                RequestDispatcher dispatcher = request.getRequestDispatcher(destination);
+                dispatcher.forward(request, response);
+            }
+        } else {
+            printWriter = null;
+            response.sendError(500, "The filename does not match the title or the format string is not .txt");
+        }
 
     }
 

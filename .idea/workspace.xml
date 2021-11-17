@@ -10,62 +10,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="901ae218-199b-4c5c-9a2e-73d1fadd9815" name="Changes" comment="---login page us set up&#10;---business layer and data layer is in a temporary library&#10;-- added files from project 1&#10;-- the relative path working&#10;-- sign up sends an error, from get method in LoginServlet&#10;-- changed sign-up link to register link&#10;-- poll manager and poll manager view is working&#10;-- added delete button and functionality&#10;-- new Driver for config&#10;-- updated downloadFile method for xml and json">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/a4ab5e73-d808-4fdc-b411-a72ee4b6a959.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/a4ab5e73-d808-4fdc-b411-a72ee4b6a959/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/a4ab5e73-d808-4fdc-b411-a72ee4b6a959/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/a4ab5e73-d808-4fdc-b411-a72ee4b6a959/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2021_2_38_PM_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2021_2_38_PM__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2021_12_59_AM_[Changes]/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2021_12_59_AM_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2021_12_59_AM__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_16_2021_10_01_PM_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_16_2021_10_01_PM__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_16_2021_9_59_PM_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_16_2021_9_59_PM_[Changes]1/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_16_2021_9_59_PM__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_16_2021_9_59_PM__Changes_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/download/PollResults.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/soen_387_part_2/LoginServlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/soen_387_part_2/PollServlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/json/JsonReader.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/json/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/users.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/AccessServicePage.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/AccessVotePage.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/PMServicePage.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/PMViewServicePage.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/PollManagerPage.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/PollManagerViewPage.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/VotingPage.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/classes/com/download/PollResults.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/classes/com/example/soen_387_part_2/LoginServlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/classes/com/example/soen_387_part_2/PollServlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/classes/com/json/JsonReader.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/classes/com/json/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/classes/users.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/lib/gson-2.8.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/lib/jakarta.activation-2.0.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/lib/jakarta.mail-2.0.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/lib/jakarta.xml.bind-api-3.0.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/lib/jaxb-api-2.3.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/lib/jaxb-core-2.3.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/lib/jaxb-impl-3.0.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/lib/mysql-connector-java-8.0.27.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/lib/org.eclipse.persistence.asm-3.0.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/lib/org.eclipse.persistence.core-3.0.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/lib/org.eclipse.persistence.moxy-3.0.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/chartService.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/components/footer.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/components/header.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/errorPage.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/js/PollApplication.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/download/PollResults.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/soen_387_part_2/PollServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/soen_387_part_2/PollServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/main/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/classes/com/main/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/business_layer_part2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/business_layer_part2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/download/PollResults.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/soen_387_part_2/PollServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/soen_387_part_2/PollServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/AccessServicePage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/AccessServicePage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/AccessVotePage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/AccessVotePage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/VotingPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/VotingPage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/classes/com/download/PollResults.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/classes/com/example/soen_387_part_2/PollServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/classes/com/example/soen_387_part_2/PollServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/lib/business_layer_part2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/lib/business_layer_part2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/chartService.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/chartService.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/login_page.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/login_page.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -299,7 +258,7 @@
       <workItem from="1637030193976" duration="752000" />
       <workItem from="1637031062384" duration="403000" />
       <workItem from="1637031500429" duration="17827000" />
-      <workItem from="1637110037545" duration="3779000" />
+      <workItem from="1637110037545" duration="12429000" />
     </task>
     <task id="LOCAL-00001" summary="---login page us set up&#10;---business layer and data layer is in a temporary library">
       <created>1636641362135</created>
@@ -385,7 +344,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637110847855</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="---login page us set up&#10;---business layer and data layer is in a temporary library&#10;-- added files from project 1&#10;-- the relative path working&#10;-- sign up sends an error, from get method in LoginServlet&#10;-- changed sign-up link to register link&#10;-- poll manager and poll manager view is working&#10;-- added delete button and functionality&#10;-- new Driver for config&#10;-- updated downloadFile method for xml and json">
+      <created>1637118759519</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1637118759519</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,6 +388,11 @@
           <url>file://$PROJECT_DIR$/src/main/webapp/PMServicePage.jsp</url>
           <line>76</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/soen_387_part_2/PollServlet.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.sql.SQLException" package="java.sql" />
