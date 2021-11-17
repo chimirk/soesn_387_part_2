@@ -4,46 +4,32 @@
 <%
     ArrayList errors = (ArrayList) request.getAttribute("errors");
 %>
-
-<html>
-<head>
-    <title>Login Page</title>
-</head>
-<body>
-
-<div>
-    <h1>Please login to continue</h1>
+<%@ include file="components/header.jsp"%>
+<div class="container">
+    <div class="d-flex align-items-center justify-content-center">
+        <form class="form-horizontal w-50 border border-3 rounded-3 border-primary p-4" action="${pageContext.request.contextPath}/LoginServlet" method="post">
+            <% if (errors != null) { %>
+            <div class="alert alert-danger" role="alert">
+                <ul>
+                <% for (int i = 0; i < errors.size(); i++) { %>
+                <li><%= errors.get(i)%></li>
+                <% } %>
+                </ul>
+            </div>
+            <% } %>
+            <h1 class=" display-5 text-center">Login to Manage Polls</h1>
+            <div class="form-group mt-2 mb-3">
+                <label class="control-label fs-3" for="username">Username</label>
+                <input class="form-control" type="text" placeholder="Enter your username" id="username" name="username" required />
+            </div>
+            <div class="form-group mt-2 mb-3">
+                <label class="control-label fs-3" for="userpassword">Password</label>
+                <input class="form-control" id="userpassword" type="password" placeholder="Enter your password" name="userpassword" required/>
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button class="btn btn-primary" type="submit" name="login_btn" >Login</button>
+            </div>
+        </form>
+    </div>
 </div>
-
-<form class="" method="post" id="" action="${pageContext.request.contextPath}/LoginServlet">
-    <div class="" role="alert">
-        <%--Display error--%>
-        <% if (errors != null) { %>
-        <% for (int i = 0; i < errors.size(); i++) { %>
-        <p><%= errors.get(i)%></p>
-        <% } %>
-        <% } %>
-
-    </div>
-
-    <div class="">
-        <label class="" for="username">Username</label>
-        <input type="text" id="username" class="" name="username">
-    </div>
-
-    <div class="">
-        <label class="" for="userpassword">Password</label>
-        <input type="password" id="userpassword" name="userpassword">
-    </div>
-
-    <div class="">
-        <button type="submit" class="" name="login_btn">Login</button>
-    </div>
-
-    <p class="">
-        Not yet a member? <a href="${pageContext.request.contextPath}/LoginServlet?signup=TRUE">Register</a>
-    </p>
-
-</form>
-</body>
-</html>
+<%@include file="components/footer.jsp"%>

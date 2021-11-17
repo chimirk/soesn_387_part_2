@@ -9,8 +9,8 @@
                 <input class="form-control" id="pollID" type="text" placeholder="Enter Poll ID" name="pollID" required />
             </div>
             <div class="form-group mt-2 mb-3">
-                <label class="control-label fs-3" for="voterPin">Pin #</label>
-                <input class="form-control" id="voterPin" type="text" placeholder="Enter you pin number" name="voterPin" />
+                <label class="control-label fs-3" for="voterPin">Pin # (Optional)</label>
+                <input class="form-control" id="voterPin" type="text" placeholder="Enter your pin number" name="voterPin" />
             </div>
             <div class="d-grid gap-2 col-6 mx-auto">
                 <button class="btn btn-primary" type="submit" name="access" value="access"><span class="fs-3">Access Poll</span></button>
