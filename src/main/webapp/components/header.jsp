@@ -14,7 +14,7 @@
     <div class="container-fluid">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link h6" href="UserPage.jsp">Vote</a>
+                    <a class="nav-link h6" href="AccessVotePage.jsp">Vote</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link h6" href="PollManagerPage.jsp">Manage Poll</a>
