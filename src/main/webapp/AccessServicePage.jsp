@@ -30,4 +30,3 @@
     }
 
 %>
-<%@ include file="chartService.jsp"%>

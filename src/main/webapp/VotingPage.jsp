@@ -1,8 +1,8 @@
 <%@ page import="com.pollmanager.*" %>
-<%@ page import="java.util.Objects" %>
-<%--<%@ page errorPage="errorPage.jsp" %>--%>
+<%@ page errorPage="errorPage.jsp" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="components/header.jsp"%>
+<%@ include file="chartService.jsp"%>
 <div class="container">
     <div class="d-flex align-items-center justify-content-center">
 
