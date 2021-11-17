@@ -6,6 +6,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
+    session.removeAttribute("poll");
+    session.removeAttribute("voterPin");
+    session.removeAttribute("voted");
+    session.removeAttribute("message");
     if("POST".equalsIgnoreCase(request.getMethod()) && request.getParameter("access")!= null){
         Poll poll = null;
         String pollID = request.getParameter("pollID").toUpperCase().trim();

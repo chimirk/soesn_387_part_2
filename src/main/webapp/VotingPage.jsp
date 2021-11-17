@@ -4,6 +4,9 @@
 <%@ include file="components/header.jsp"%>
 <%@ include file="chartService.jsp"%>
 <div class="container">
+    <div class="col-0 justify-content-end">
+        <a class="btn btn-primary" href="AccessVotePage.jsp">Back</a>
+    </div>
     <div class="d-flex align-items-center justify-content-center">
 
         <% if(request.getSession().getAttribute("poll") != null){ %>
