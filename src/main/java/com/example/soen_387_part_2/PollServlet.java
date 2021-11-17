@@ -1,4 +1,3 @@
-/*
 package com.example.soen_387_part_2;
 
 import com.pollmanager.*;
@@ -24,74 +23,75 @@ public class PollServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
-        PollManager pollManager = (PollManager) request.getSession().getAttribute("poll_manager");
-        String poll_title = (String) request.getSession().getAttribute("poll_title");
-
-        PrintWriter printWriter = response.getWriter();
-        StringBuilder filename = new StringBuilder();
-        String pollID = request.getParameter("pollID");
-
-        try {
-            pollManager.downloadPollDetails(printWriter, filename, pollID);
-        } catch (PollManagerException e) {
-            response.sendError(500, e.getMessage());
-            return;
-        }
-
-
-        String name = filename.toString().substring(0, poll_title.length());
-
-        if ((filename.toString().endsWith(".txt")) && (name.compareTo(poll_title) == 0)) {
-
-            String headerKey = "Content-Disposition";
-            String headerValue = String.format("attachment; filename=\"%s\"", filename.toString());
-            response.setContentType("application/octet-stream");
-            response.setHeader(headerKey, headerValue);
-            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1
-            response.setHeader("Pragma", "no-cache"); // HTTP 1.0
-            response.setDateHeader("Expires", 0); // Proxies.
-
-            printWriter.close();
-
-            String destination = "/UserPage.jsp";
-            RequestDispatcher dispatcher = request.getRequestDispatcher(destination);
-            dispatcher.forward(request, response);
-
-        } else {
-
-            printWriter = null;
-            response.sendError(500, "The filename does not match the title or the format string is not .txt");
-        }
+//
+//        PollManager pollManager = (PollManager) request.getSession().getAttribute("poll_manager");
+//        String poll_title = (String) request.getSession().getAttribute("poll_title");
+//
+//        PrintWriter printWriter = response.getWriter();
+//        StringBuilder filename = new StringBuilder();
+//        String pollID = request.getParameter("pollID");
+//
+//        try {
+//            pollManager.downloadPollDetails(printWriter, filename, pollID);
+//        } catch (PollManagerException e) {
+//            response.sendError(500, e.getMessage());
+//            return;
+//        }
+//
+//
+//        String name = filename.toString().substring(0, poll_title.length());
+//
+//        if ((filename.toString().endsWith(".txt")) && (name.compareTo(poll_title) == 0)) {
+//
+//            String headerKey = "Content-Disposition";
+//            String headerValue = String.format("attachment; filename=\"%s\"", filename.toString());
+//            response.setContentType("application/octet-stream");
+//            response.setHeader(headerKey, headerValue);
+//            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1
+//            response.setHeader("Pragma", "no-cache"); // HTTP 1.0
+//            response.setDateHeader("Expires", 0); // Proxies.
+//
+//            printWriter.close();
+//
+//            String destination = "/UserPage.jsp";
+//            RequestDispatcher dispatcher = request.getRequestDispatcher(destination);
+//            dispatcher.forward(request, response);
+//
+//        } else {
+//
+//            printWriter = null;
+//            response.sendError(500, "The filename does not match the title or the format string is not .txt");
+//        }
 
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PollManager pollManager = (PollManager) request.getSession().getAttribute("poll_manager");
-        Poll poll = pollManager.getPoll();
-        String sessionID = request.getParameter("sessionID");
-        String choiceText = request.getParameter("choice");
-        String description = "";
-
-        if(Objects.isNull(choiceText) || choiceText.isEmpty()){
+        PollManager pollManager = new PollManager();
+        if(Objects.isNull(request.getParameter("pollID")) ||request.getParameter("pollID").isEmpty()){
+            response.sendError(500, "Missing Poll ID");
+            return;
+        }
+        if(Objects.isNull(request.getParameter("choice")) || request.getParameter("choice").isEmpty()){
             response.sendError(500, "Please select a choice before submitting.");
             return;
         }
-
-        //get description matching the choice text
-        ArrayList<Choice> arrayList = poll.getChoices();
-        for (int i = 0; i < arrayList.size(); i++) {
-            Choice choice = arrayList.get(i);
-            if (choice.getText().compareTo(choiceText) == 0) {
-                description = choice.getDescription();
-                break;
-            }
+        if(Objects.isNull(request.getParameter("voterPin")) || request.getParameter("voterPin").isEmpty()){
+            response.sendError(500, "Missing Pin Number");
+            return;
+        }
+        String pollID = (String) request.getParameter("pollID");
+        int voterPin = Integer.parseInt(request.getParameter("voterPin"));
+        int choiceID = Integer.parseInt(request.getParameter("choice"));
+        Poll poll = null;
+        try {
+            poll = pollManager.accessPoll(pollID);
+        } catch (PollManagerException e) {
+            response.sendError(500, e.getMessage());
+            return;
         }
 
-        Choice choice = new Choice(choiceText, description);
-
-        if (!poll.isValidChoice(choice)) {
+        if (!poll.isValidChoice(choiceID)) {
             response.sendError(500, "The selected choice is not valid");
         }
         else if (poll.getStatus().compareTo(PollStatus.RUNNING) != 0){
@@ -99,18 +99,18 @@ public class PollServlet extends HttpServlet {
         }
         else {
             try {
-                pollManager.vote(sessionID, choice);
-                message = "You voted for " + choiceText;
+                pollManager.vote(pollID,voterPin, choiceID);
+                message = "Vote Successful for "+voterPin;
             } catch (PollManagerException e) {
                 e.printStackTrace();
             }
 
             request.getSession().setAttribute("voted", "voted");
             request.getSession().setAttribute("message", message);
-            request.getSession().setAttribute("poll_manager", pollManager);
-            //request.getSession().setAttribute("poll", poll);
+            request.getSession().setAttribute("voterPin", voterPin);
+            request.getSession().setAttribute("poll", poll);
 
-            String destination = "/UserPage.jsp";
+            String destination = "/VotingPage.jsp";
             RequestDispatcher dispatcher = request.getRequestDispatcher(destination);
             dispatcher.forward(request, response);
         }
@@ -118,4 +118,3 @@ public class PollServlet extends HttpServlet {
     }
 
 }
-*/
