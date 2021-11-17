@@ -1,0 +1,14 @@
+[
+	{
+		"id": "111111",
+		"fullName": "fullName1",
+		"email": "user1@email.com",
+		"hashedPassword": "5f4dcc3b5aa765d61d8327deb882cf99"
+	},
+	{
+		"id": "222222",
+		"fullName": "fullName2",
+		"email": "user2@email.com",
+		"hashedPassword": "5f4dcc3b5aa765d61d8327deb882cf99"
+	}
+]

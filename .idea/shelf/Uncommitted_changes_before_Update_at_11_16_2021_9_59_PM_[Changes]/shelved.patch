@@ -1,0 +1,65 @@
+Index: src/main/webapp/UserPage.jsp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><%@ page import=\"com.pollmanager.*\" %>\r\n<%@ page errorPage=\"errorPage.jsp\" %>\r\n<%@ page contentType=\"text/html;charset=UTF-8\" language=\"java\" %>\r\n<%@ include file=\"UserServicePage.jsp\"%>\r\n<%@ include file=\"components/header.jsp\"%>\r\n\r\n<div class=\"container\">\r\n    <div class=\"d-flex align-items-center justify-content-center\">\r\n\r\n        <% if(application.getAttribute(\"poll_manager\") != null && pollManager.getPoll().getStatus() != PollStatus.CREATED){ %>\r\n        <%\r\n            request.getSession().setAttribute(\"poll_manager\", pollManager);\r\n            request.getSession().setAttribute(\"poll\", pollManager.getPoll());\r\n\r\n            session.setAttribute(\"poll_manager\", pollManager);\r\n            session.setAttribute(\"poll_title\", pollManager.getPoll().getTitle());\r\n        %>\r\n        <% if(pollManager.getPoll().getStatus() == PollStatus.RUNNING) { %>\r\n            <form class=\"w-100 d-flex justify-content-center\" action=\"${pageContext.request.contextPath}/PollServlet\" method=\"post\">\r\n                <div class=\"card\" style=\"width: 50%;\">\r\n                    <div class=\"card-body\">\r\n                        <% if(!message.isEmpty()) { %>\r\n                        <div class=\"alert alert-success\" role=\"alert\">\r\n                            <%= message %>\r\n                        </div>\r\n                        <% } %>\r\n                        <h1 class=\"card-title display-4 text-center\"><%= title %></h1>\r\n                        <h1 class=\"card-text display-6\"><%= question %></h1>\r\n                    </div>\r\n                    <ul class=\"list-group list-group-flush\">\r\n                        <% for (int i = 0; i < choices.size(); i++) { %>\r\n                        <li class=\"list-group-item\">\r\n                            <input class=\"form-check-input\" type=\"radio\" id = \"choice_<%= i + 1%>\" value=\"<%= choices.get(i).getText() %>\" name=\"choice\">\r\n                            <label class=\"form-check-label fs-5\" for=\"choice_<%= i + 1%>\">\r\n                                <%= choices.get(i).getText()%>\r\n                                <br />\r\n                                <p><small><%= choices.get(i).getDescription() %></small></p>\r\n                            </label>\r\n\r\n                        </li>\r\n                        <% } %>\r\n                    </ul>\r\n                    <div class=\"card-body d-grid gap-2 col-6 mx-auto\">\r\n                        <input type=\"hidden\" value=\"<%= session.getId()%>\" name=\"sessionID\">\r\n                        <button class=\"btn btn-primary\" type=\"submit\" name=\"vote\" value=\"vote\">Vote</button>\r\n                    </div>\r\n                </div>\r\n            </form>\r\n        <% }else if(pollManager.getPoll().getStatus() == PollStatus.RELEASED) { %>\r\n        <div class=\"card\">\r\n            <div class=\"card-body\">\r\n                <div id=\"piechart\" style=\"width: 900px; height: 500px;\"></div>\r\n            </div>\r\n            <div class=\"card-body d-grid gap-2 col-6 mx-auto\">\r\n                <a class=\"btn btn-primary\" href=\"${pageContext.request.contextPath}/PollServlet\">Download Results</a>\r\n            </div>\r\n        </div>\r\n        <% } }else{ %>\r\n        <h1>Currently there is no poll running</h1>\r\n        <% } %>\r\n    </div>\r\n</div>\r\n<%@include file=\"components/footer.jsp\"%>\r\n\r\n\r\n
+===================================================================
+diff --git a/src/main/webapp/UserPage.jsp b/src/main/webapp/UserPage.jsp
+--- a/src/main/webapp/UserPage.jsp	
++++ b/src/main/webapp/UserPage.jsp	
+@@ -52,7 +52,7 @@
+                 <div id="piechart" style="width: 900px; height: 500px;"></div>
+             </div>
+             <div class="card-body d-grid gap-2 col-6 mx-auto">
+-                <a class="btn btn-primary" href="${pageContext.request.contextPath}/PollServlet">Download Results</a>
++                <a class="btn btn-primary" href="${pageContext.request.contextPath}/PollServlet?pollID=<%=  %>">Download Results</a>
+             </div>
+         </div>
+         <% } }else{ %>
+Index: src/main/webapp/UserServicePage.jsp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><%@ page errorPage=\"errorPage.jsp\" %>\r\n<%@ page import=\"com.pollmanager.PollManager\" %>\r\n<%@ page import=\"java.util.ArrayList\" %>\r\n<%@ page import=\"com.pollmanager.Choice\" %>\r\n<%@ page import=\"com.pollmanager.PollManagerException\" %>\r\n\r\n<%@ page contentType=\"text/html;charset=UTF-8\" language=\"java\" %>\r\n\r\n<%\r\n    PollManager pollManager = null;\r\n    String title = \"\";\r\n    String question = \"\";\r\n    ArrayList<Choice> choices = null;\r\n    String message = \"\";\r\n\r\n    if (request.getSession().getAttribute(\"voted\") != null) {\r\n        application.setAttribute(\"poll_manager\", request.getSession().getAttribute(\"poll_manager\"));\r\n        message = (String) request.getSession().getAttribute(\"message\");\r\n        session.setAttribute(\"voted\", null);\r\n    }\r\n\r\n    if(application.getAttribute(\"poll_manager\") != null){\r\n        pollManager = (PollManager) application.getAttribute(\"poll_manager\");\r\n\r\n        title = pollManager.getPoll().getTitle();\r\n        question = pollManager.getPoll().getQuestion();\r\n        choices = pollManager.getPoll().getChoices();\r\n    }\r\n\r\n%>\r\n<%@ include file=\"chartService.jsp\"%>
+===================================================================
+diff --git a/src/main/webapp/UserServicePage.jsp b/src/main/webapp/UserServicePage.jsp
+--- a/src/main/webapp/UserServicePage.jsp	
++++ b/src/main/webapp/UserServicePage.jsp	
+@@ -3,6 +3,7 @@
+ <%@ page import="java.util.ArrayList" %>
+ <%@ page import="com.pollmanager.Choice" %>
+ <%@ page import="com.pollmanager.PollManagerException" %>
++<%@ page import="com.database.PollGateway" %>
+ 
+ <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+ 
+@@ -12,19 +13,23 @@
+     String question = "";
+     ArrayList<Choice> choices = null;
+     String message = "";
++    String pollID = "";
++    Poll currentPoll = null;
++
++    pollID = (String) session.getAttribute("pollID");
++    currentPoll = PollGateway.selectPollById(pollID);
+ 
+     if (request.getSession().getAttribute("voted") != null) {
+-        application.setAttribute("poll_manager", request.getSession().getAttribute("poll_manager"));
++        //application.setAttribute("poll_manager", request.getSession().getAttribute("poll_manager"));
+         message = (String) request.getSession().getAttribute("message");
+-        session.setAttribute("voted", null);
++        session.setAttribute("voted", "");
+     }
+ 
+-    if(application.getAttribute("poll_manager") != null){
+-        pollManager = (PollManager) application.getAttribute("poll_manager");
+-
+-        title = pollManager.getPoll().getTitle();
+-        question = pollManager.getPoll().getQuestion();
+-        choices = pollManager.getPoll().getChoices();
++    if(session.getAttribute("pollID") != null){
++        currentPoll = PollGateway.selectPollById(pollID)
++        title = currentPoll.getTitle();
++        question = currentPoll.getQuestion();
++        choices = currentPoll.getChoices();
+     }
+ 
+ %>

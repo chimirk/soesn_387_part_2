@@ -1,0 +1,110 @@
+Index: target/soen_387_part_2-1.0-SNAPSHOT/login_page.jsp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><%--\r\n  Created by IntelliJ IDEA.\r\n  User: tigerrrr\r\n  Date: 11/10/2021\r\n  Time: 4:13 PM\r\n  To change this template use File | Settings | File Templates.\r\n--%>\r\n<%@ page contentType=\"text/html;charset=UTF-8\" language=\"java\" %>\r\n<html>\r\n<head>\r\n    <title>Title</title>\r\n</head>\r\n<body>\r\n<form>\r\n    <div>\r\n        <label></label>\r\n        <input type=\"text\">\r\n    </div>\r\n\r\n    <div>\r\n        <label></label>\r\n        <input type=\"password\">\r\n    </div>\r\n\r\n    <div>\r\n        <button>Login</button>\r\n    </div>\r\n    <p class=\"col-sm-offset-2 col-sm-10\">\r\n        Not yet a member? <a href=\"\">Sign up</a>\r\n    </p>\r\n\r\n</form>\r\n\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/soen_387_part_2-1.0-SNAPSHOT/login_page.jsp b/target/soen_387_part_2-1.0-SNAPSHOT/login_page.jsp
+--- a/target/soen_387_part_2-1.0-SNAPSHOT/login_page.jsp	(revision 46cf9b5256fe550e07992f2734631381486d96b5)
++++ b/target/soen_387_part_2-1.0-SNAPSHOT/login_page.jsp	(date 1636659238199)
+@@ -6,30 +6,44 @@
+   To change this template use File | Settings | File Templates.
+ --%>
+ <%@ page contentType="text/html;charset=UTF-8" language="java" %>
++<%@ include file="login_page_funtionality.jsp"%>
+ <html>
+ <head>
+-    <title>Title</title>
++    <title>Login Page</title>
+ </head>
+ <body>
+-<form>
+-    <div>
+-        <label></label>
+-        <input type="text">
+-    </div>
++
++<div>
++    <h1>Please login to continue</h1>
++</div>
+ 
+-    <div>
+-        <label></label>
+-        <input type="password">
++<form class="" method="post" id="" action="login_page.jsp">
++    <div class="" role="alert">
++        <%--Display error--%>
++        <% for (int i = 0; i < errors.size(); i++) { %>
++        <p><%= errors.get(i)%></p>
++        <% } %>
++
+     </div>
+ 
+-    <div>
+-        <button>Login</button>
++    <div class="">
++        <label class="" for="username">Username</label>
++        <input type="text" id="username" class="" name="username">
++    </div>
++
++    <div class="">
++        <label class="" for="userpassword">Password</label>
++        <input type="password" id="userpassword" name="userpassword">
+     </div>
+-    <p class="col-sm-offset-2 col-sm-10">
++
++    <div class="">
++        <button type="submit" class="" name="login_btn">Login</button>
++    </div>
++
++    <p class="">
+         Not yet a member? <a href="">Sign up</a>
+     </p>
+ 
+ </form>
+-
+ </body>
+ </html>
+Index: target/soen_387_part_2-1.0-SNAPSHOT/login_page_funtionality.jsp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><%@ page import=\"java.util.ArrayList\" %>\r\n<%@ page import=\"java.security.MessageDigest\" %>\r\n<%@ page import=\"java.security.NoSuchAlgorithmException\" %>\r\n<%@ page import=\"java.io.BufferedReader\" %>\r\n<%@ page import=\"java.io.FileReader\" %>\r\n<%@ page import=\"java.io.IOException\" %>\r\n<%@ page import=\"com.google.gson.Gson\" %>\r\n<%\r\n    String username = \"\";\r\n    String userpassword = \"\";\r\n    ArrayList<String> errors = new ArrayList();\r\n    String pathName = \"/Users/pierrickcatalo/IdeaProjects/soesn_387_part_2/src/main/webapp/users.json\";\r\n\r\n    if (\"POST\".equals(request.getMethod())) {\r\n        if (request.getParameter(\"login_btn\") != null) {\r\n            username = request.getParameter(\"username\");\r\n            if (username.isEmpty()) errors.add(\"Username is required\");\r\n            userpassword = request.getParameter(\"userpassword\");\r\n            if (userpassword.isEmpty()) errors.add(\"Password is required\");\r\n\r\n            if (errors.size() == 0) {\r\n                //calculate MD5 hash of password\r\n                MessageDigest md = null;\r\n                try {\r\n                    md = MessageDigest.getInstance(\"MD5\");\r\n                    md.update(userpassword.getBytes());\r\n                    byte[] bytes = md.digest();\r\n                    StringBuilder sb = new StringBuilder();\r\n                    for (int i = 0; i < bytes.length; i++) {\r\n                        sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));\r\n                    }\r\n                    userpassword = sb.toString();\r\n                } catch (NoSuchAlgorithmException e) {\r\n                    e.printStackTrace();\r\n                }\r\n\r\n                //read from JSON file and see if username and password match.\r\n                User[] users = readJsonFile(pathName);\r\n\r\n                //check if we have a user match\r\n                User loggedInUser = null;\r\n                for (int i = 0; i < users.length; i++) {\r\n                    if (users[i].id.equals(username) &&\r\n                            users[i].hashedPassword.equals(userpassword)) {\r\n                        loggedInUser = users[i];\r\n                        break;\r\n                    }\r\n                }\r\n\r\n                //if loggedInUser is not null, we are logged in\r\n                if (loggedInUser != null) {\r\n%>\r\n<h1>Logged In!</h1>\r\n<%\r\n                } else {\r\n                    errors.add(\"Wrong username/password combination\");\r\n                }\r\n\r\n            }  //end no errors\r\n        }\r\n    }\r\n%>\r\n<%!\r\n    private static User[] readJsonFile(String pathName) throws IOException {\r\n        String jsonText = \"\";\r\n\r\n        try (BufferedReader br = new BufferedReader(new FileReader(pathName))) {\r\n            StringBuilder sb = new StringBuilder();\r\n            String line = br.readLine();\r\n\r\n            while (line != null) {\r\n                sb.append(line);\r\n                sb.append(System.lineSeparator());\r\n                line = br.readLine();\r\n            }\r\n            jsonText = sb.toString();\r\n        }\r\n\r\n        //parse jsonText to array of objects\r\n        Gson g = new Gson();\r\n        User[] users = g.fromJson(jsonText, User[].class);\r\n\r\n        return users;\r\n        //parse jsonText to array of objects\r\n\r\n    }\r\n\r\n    public class User {\r\n        public String id;\r\n        public String fullName;\r\n        public String email;\r\n        public String hashedPassword;\r\n    }\r\n%>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/soen_387_part_2-1.0-SNAPSHOT/login_page_funtionality.jsp b/target/soen_387_part_2-1.0-SNAPSHOT/login_page_funtionality.jsp
+--- a/target/soen_387_part_2-1.0-SNAPSHOT/login_page_funtionality.jsp	(revision 46cf9b5256fe550e07992f2734631381486d96b5)
++++ b/target/soen_387_part_2-1.0-SNAPSHOT/login_page_funtionality.jsp	(date 1636659524239)
+@@ -9,7 +9,7 @@
+     String username = "";
+     String userpassword = "";
+     ArrayList<String> errors = new ArrayList();
+-    String pathName = "/Users/pierrickcatalo/IdeaProjects/soesn_387_part_2/src/main/webapp/users.json";
++    String pathName = "path/IdeaProjects/soesn_387_part_2/src/main/webapp/users.json";
+ 
+     if ("POST".equals(request.getMethod())) {
+         if (request.getParameter("login_btn") != null) {
+Index: target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/web.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<web-app xmlns=\"http://xmlns.jcp.org/xml/ns/javaee\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd\"\r\n         version=\"4.0\">\r\n</web-app>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/web.xml b/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/web.xml
+--- a/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/web.xml	(revision 46cf9b5256fe550e07992f2734631381486d96b5)
++++ b/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/web.xml	(date 1636642800532)
+@@ -3,4 +3,11 @@
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+          version="4.0">
++    <welcome-file-list>
++        <welcome-file>login_page.jsp</welcome-file>
++    </welcome-file-list>
++    <error-page>
++        <error-code>500</error-code>
++        <location>/errorPage.jsp</location>
++    </error-page>
+ </web-app>
+\ No newline at end of file
