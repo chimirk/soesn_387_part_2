@@ -1,3 +1,4 @@
+/*
 package com.example.soen_387_part_2;
 
 import com.pollmanager.*;
@@ -29,9 +30,10 @@ public class PollServlet extends HttpServlet {
 
         PrintWriter printWriter = response.getWriter();
         StringBuilder filename = new StringBuilder();
+        String pollID = request.getParameter("pollID");
 
         try {
-            pollManager.downloadPollDetails(printWriter, filename);
+            pollManager.downloadPollDetails(printWriter, filename, pollID);
         } catch (PollManagerException e) {
             response.sendError(500, e.getMessage());
             return;
@@ -116,3 +118,4 @@ public class PollServlet extends HttpServlet {
     }
 
 }
+*/
