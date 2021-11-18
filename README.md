@@ -29,7 +29,7 @@ Database: `MySQL`<br />
 
 ## For Demo
 You can use the following details to log as a poll manager: <br/>
-Username: `111111` <br/>
+Username: `user1` <br/>
 Password: `password`
 
 ### Troubleshooting
