@@ -17,7 +17,7 @@
         <div class="col">
             <div class="d-flex align-items-center justify-content-center">
                 <form class="form-horizontal w-50 border border-3 rounded-3 border-primary p-4" action="PollManagerViewPage.jsp" method="post">
-                    <h1 class="text-center">"Current Poll"</h1>
+                    <h1 class="text-center">Current Poll</h1>
                     <div class="form-group mt-2 mb-3">
                         <label class="control-label fs-3" for="poll_title">Poll Title</label>
                         <input class="form-control" id="poll_title" type="text" value="<%= title %>" name="poll_title" required />
@@ -41,20 +41,17 @@
                             for(int i = 2;i < listOfChoiceText.length; i++){ %>
                         <div class="form-group mb-3">
                             <label class="control-label fs-4"  >Choice <%= i+1 %> </label>
-                            <% if(currentPoll == null || currentPoll.getStatus() != PollStatus.RELEASED){ %>
+                            <% System.out.println(currentPoll == null);
+                                if(currentPoll == null || currentPoll.getStatus() != PollStatus.RELEASED && currentPoll.getStatus() != PollStatus.CLOSED){ %>
                             <button type="button" class="btn-close" aria-label="Close" value="<%= i %>" onclick="removeChoice(event)"></button>
                             <% } %>
-                            <label>
-                                <input class="form-control m-1" type="text" placeholder="Enter Text" name="choice_text" value="<%= Objects.nonNull(listOfChoiceText) && listOfChoiceText.length>=i ? listOfChoiceText[i]: "" %>" required>
-                            </label>
-                            <label>
-                                <input class="form-control m-1" type="text" placeholder="Enter Description" name="description" value="<%= Objects.nonNull(listOfChoiceText) && listOfDescription.length>=i? listOfChoiceText[i]: "" %>" required>
-                            </label>
+                            <input class="form-control m-1" type="text" placeholder="Enter Text" name="choice_text" value="<%= Objects.nonNull(listOfChoiceText) && listOfChoiceText.length>=i ? listOfChoiceText[i]: "" %>" required>
+                            <input class="form-control m-1" type="text" placeholder="Enter Description" name="description" value="<%= Objects.nonNull(listOfChoiceText) && listOfDescription.length>=i? listOfChoiceText[i]: "" %>" required>
                         </div>
                         <% }
                         } %>
                     </div>
-                    <% if(currentPoll == null || currentPoll.getStatus() != PollStatus.RELEASED){ %>
+                    <% if(currentPoll == null || currentPoll.getStatus() != PollStatus.RELEASED && currentPoll.getStatus() != PollStatus.CLOSED){ %>
                     <button id="add" class="btn btn-primary"><i class="bi bi-plus-square"></i> Choice</button>
                     <% } %>
                     <br />
