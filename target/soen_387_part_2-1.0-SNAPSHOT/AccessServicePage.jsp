@@ -19,6 +19,15 @@
         PollManager pollManager = new PollManager();
         try {
             poll = pollManager.accessPoll(pollID);
+            if (poll.getStatus().equals(PollStatus.RELEASED)) {
+                request.getSession().setAttribute("errorMessage", "The poll has been RELEASED. Cannot vote on it anymore.");
+                response.sendRedirect("AccessVotePage.jsp");
+                return;
+            } else if (poll.getStatus().equals(PollStatus.CLOSED)) {
+                request.getSession().setAttribute("errorMessage", "The poll has been CLOSED. Cannot vote on it anymore.");
+                response.sendRedirect("AccessVotePage.jsp");
+                return;
+            }
         } catch (PollManagerException e) {
             request.getSession().setAttribute("errorMessage", "Entered POLL ID does not exist in the system");
             response.sendRedirect("AccessVotePage.jsp");

@@ -20,7 +20,13 @@
 
 
     User user = (User) session.getAttribute("loggedInUser");
-    userID = user.id;
+    if (user != null) {
+        userID = user.id;
+    } else {
+        response.sendRedirect("login_page.jsp");
+        return;
+    }
+
 
     ArrayList<Poll> polls = pollManager.getAllPollsByUser(userID);
 
