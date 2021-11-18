@@ -1,4 +1,6 @@
+<%--
 <%@ page errorPage="errorPage.jsp" %>
+--%>
 <%@ page import="com.pollmanager.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="com.generator.VoterPin" %>
@@ -18,7 +20,9 @@
         try {
             poll = pollManager.accessPoll(pollID);
         } catch (PollManagerException e) {
+            request.getSession().setAttribute("errorMessage", "Entered POLL ID does not exist in the system");
             response.sendRedirect("AccessVotePage.jsp");
+            return;
         }
         System.out.println(pinEntered);
         if(Objects.isNull(pinEntered)|| pinEntered.isEmpty()){
@@ -26,7 +30,10 @@
         }else if(VoterPin.pinExists(pollID,Integer.parseInt(pinEntered.trim()))){
             session.setAttribute("voterPin", Integer.parseInt(pinEntered.trim()));
         } else{
-            throw new Exception("Pin not found for this poll.");
+            request.getSession().setAttribute("errorMessage", "Entered PIN does not exist in the system");
+            response.sendRedirect("AccessVotePage.jsp");
+            return;
+
         }
         request.getSession().setAttribute("poll", poll);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("VotingPage.jsp");
