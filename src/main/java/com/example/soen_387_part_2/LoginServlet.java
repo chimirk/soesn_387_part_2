@@ -3,11 +3,14 @@ package com.example.soen_387_part_2;
 import com.json.JsonReader;
 import com.json.User;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -32,7 +35,7 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        URL url = this.getClass().getClassLoader().getResource("/users.json");
+        String url = this.getClass().getClassLoader().getResource("/users.json").getPath().replace("%20"," ");
         String username = "";
         String userpassword = "";
         ArrayList<String> errors = new ArrayList();
@@ -59,7 +62,7 @@ public class LoginServlet extends HttpServlet {
                 e.printStackTrace();
             }
 
-            User[] users = JsonReader.readJsonFile(url.getPath());
+            User[] users = JsonReader.readJsonFile(url);
             //check if we have a user match
             User loggedInUser = null;
             for (int i = 0; i < users.length; i++) {
