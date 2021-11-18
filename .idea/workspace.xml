@@ -9,22 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="901ae218-199b-4c5c-9a2e-73d1fadd9815" name="Changes" comment="---login page us set up&#10;---business layer and data layer is in a temporary library&#10;-- added files from project 1&#10;-- the relative path working&#10;-- sign up sends an error, from get method in LoginServlet&#10;-- changed sign-up link to register link&#10;-- poll manager and poll manager view is working&#10;-- added delete button and functionality&#10;-- new Driver for config&#10;-- updated downloadFile method for xml and json">
+    <list default="true" id="901ae218-199b-4c5c-9a2e-73d1fadd9815" name="Changes" comment="---login page us set up&#10;---business layer and data layer is in a temporary library&#10;-- added files from project 1&#10;-- the relative path working&#10;-- sign up sends an error, from get method in LoginServlet&#10;-- changed sign-up link to register link&#10;-- poll manager and poll manager view is working&#10;-- added delete button and functionality&#10;-- new Driver for config&#10;-- updated downloadFile method for xml and json&#10;--download various format working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/download/PollResults.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/soen_387_part_2/PollServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/soen_387_part_2/PollServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/business_layer_part2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/business_layer_part2.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/download/PollResults.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/soen_387_part_2/PollServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/soen_387_part_2/PollServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/AccessServicePage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/AccessServicePage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/AccessVotePage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/AccessVotePage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/VotingPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/VotingPage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/classes/com/download/PollResults.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/classes/com/example/soen_387_part_2/PollServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/classes/com/example/soen_387_part_2/PollServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/lib/business_layer_part2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/lib/business_layer_part2.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/chartService.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/chartService.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/login_page.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/login_page.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,7 +245,7 @@
       <workItem from="1637030193976" duration="752000" />
       <workItem from="1637031062384" duration="403000" />
       <workItem from="1637031500429" duration="17827000" />
-      <workItem from="1637110037545" duration="12429000" />
+      <workItem from="1637110037545" duration="13137000" />
     </task>
     <task id="LOCAL-00001" summary="---login page us set up&#10;---business layer and data layer is in a temporary library">
       <created>1636641362135</created>
@@ -351,7 +338,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637118759519</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="---login page us set up&#10;---business layer and data layer is in a temporary library&#10;-- added files from project 1&#10;-- the relative path working&#10;-- sign up sends an error, from get method in LoginServlet&#10;-- changed sign-up link to register link&#10;-- poll manager and poll manager view is working&#10;-- added delete button and functionality&#10;-- new Driver for config&#10;-- updated downloadFile method for xml and json&#10;--download various format working">
+      <created>1637127544030</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1637127544030</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,7 +373,8 @@
     <MESSAGE value="---login page us set up&#10;---business layer and data layer is in a temporary library&#10;-- added files from project 1&#10;-- the relative path working&#10;-- sign up sends an error, from get method in LoginServlet&#10;-- changed sign-up link to register link&#10;-- poll manager and poll manager view is working" />
     <MESSAGE value="---login page us set up&#10;---business layer and data layer is in a temporary library&#10;-- added files from project 1&#10;-- the relative path working&#10;-- sign up sends an error, from get method in LoginServlet&#10;-- changed sign-up link to register link&#10;-- poll manager and poll manager view is working&#10;-- added delete button and functionality" />
     <MESSAGE value="---login page us set up&#10;---business layer and data layer is in a temporary library&#10;-- added files from project 1&#10;-- the relative path working&#10;-- sign up sends an error, from get method in LoginServlet&#10;-- changed sign-up link to register link&#10;-- poll manager and poll manager view is working&#10;-- added delete button and functionality&#10;-- new Driver for config&#10;-- updated downloadFile method for xml and json" />
-    <option name="LAST_COMMIT_MESSAGE" value="---login page us set up&#10;---business layer and data layer is in a temporary library&#10;-- added files from project 1&#10;-- the relative path working&#10;-- sign up sends an error, from get method in LoginServlet&#10;-- changed sign-up link to register link&#10;-- poll manager and poll manager view is working&#10;-- added delete button and functionality&#10;-- new Driver for config&#10;-- updated downloadFile method for xml and json" />
+    <MESSAGE value="---login page us set up&#10;---business layer and data layer is in a temporary library&#10;-- added files from project 1&#10;-- the relative path working&#10;-- sign up sends an error, from get method in LoginServlet&#10;-- changed sign-up link to register link&#10;-- poll manager and poll manager view is working&#10;-- added delete button and functionality&#10;-- new Driver for config&#10;-- updated downloadFile method for xml and json&#10;--download various format working" />
+    <option name="LAST_COMMIT_MESSAGE" value="---login page us set up&#10;---business layer and data layer is in a temporary library&#10;-- added files from project 1&#10;-- the relative path working&#10;-- sign up sends an error, from get method in LoginServlet&#10;-- changed sign-up link to register link&#10;-- poll manager and poll manager view is working&#10;-- added delete button and functionality&#10;-- new Driver for config&#10;-- updated downloadFile method for xml and json&#10;--download various format working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
