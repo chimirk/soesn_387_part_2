@@ -57,26 +57,11 @@
                 <div id="piechart" style="width: 900px; height: 500px;"></div>
             </div>
             <div class="card-body ">
-                <form  class="w-100 " action="${pageContext.request.contextPath}/PollServlet" method="get">
-                    <input type="hidden" value="<%= poll.getPollID() %>" name="pollID">
-                    <div class="d-flex justify-content-center">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="dataFormat" id="txt" value="txt">
-                            <label class="form-check-label" for="txt">Plain Text</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="dataFormat" id="xml" value="xml">
-                            <label class="form-check-label" for="xml">XML</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="dataFormat" id="json" value="json">
-                            <label class="form-check-label" for="json">JSON</label>
-                        </div>
-                    </div>
-                    <div class="d-grid gap-2 col-6 mx-auto">
-                        <input type="submit" class="btn btn-primary" name="Download" value="Download"/>
-                    </div>
-                </form>
+                <div class="d-flex justify-content-around">
+                    <a class="btn btn-primary" href="${pageContext.request.contextPath}/PollServlet?dataFormat=txt" download>Download As Plain Text</a>
+                    <a class="btn btn-primary" href="${pageContext.request.contextPath}/PollServlet?dataFormat=xml" download>Download As XML</a>
+                    <a class="btn btn-primary" href="${pageContext.request.contextPath}/PollServlet?dataFormat=json" download>Download As JSON</a>
+                </div>
             </div>
         </div>
         <% } }else{ %>
