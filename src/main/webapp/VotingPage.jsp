@@ -26,7 +26,7 @@
                         <%= message %>
                     </div>
                     <% } %>
-                    <h1 class="card-title display-4 text-center"><%= poll.getTitle()+"-"+ session.getAttribute("voterPin") %></h1>
+                    <h1 class="card-title display-4 text-center"><%= poll.getTitle() %></h1>
                     <h1 class="card-text display-6"><%= poll.getQuestion() %></h1>
                 </div>
                 <ul class="list-group list-group-flush">
@@ -46,6 +46,8 @@
                     <input type="hidden" value="<%= session.getAttribute("voterPin")%>" name="voterPin">
                     <input type="hidden" value="<%= poll.getPollID() %>" name="pollID">
                     <button class="btn btn-primary" type="submit" name="vote" value="vote">Vote</button>
+                    <br/>
+                    <p class="display-6">Your PIN: <%= session.getAttribute("voterPin") %></p>
                 </div>
             </div>
         </form>

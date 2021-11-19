@@ -150,7 +150,7 @@ public class PollServlet extends HttpServlet {
         else {
             try {
                 pollManager.vote(pollID,voterPin, choiceID);
-                message = "Vote Successful for "+voterPin;
+                message = "Vote has been successfully saved.";
             } catch (PollManagerException e) {
                 e.printStackTrace();
             }
