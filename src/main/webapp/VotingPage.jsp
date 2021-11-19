@@ -1,4 +1,6 @@
 <%@ page import="com.pollmanager.*" %>
+<%@ page import="java.security.Timestamp" %>
+<%@ page import="java.util.*" %>
 <%@ page errorPage="errorPage.jsp" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="components/header.jsp"%>
@@ -16,6 +18,7 @@
                 message = (String) session.getAttribute("message");
             }
             Poll poll = (Poll) request.getSession().getAttribute("poll");
+            String pt = poll.getTitle() + "-" + new java.sql.Timestamp(new Date().getTime()) + ".xml";
         %>
         <% if(poll.getStatus() == PollStatus.RUNNING) { %>
         <form class="w-100 d-flex justify-content-center" action="${pageContext.request.contextPath}/PollServlet" method="post">
@@ -59,7 +62,7 @@
             <div class="card-body ">
                 <div class="d-flex justify-content-around">
                     <a class="btn btn-primary" href="${pageContext.request.contextPath}/PollServlet?dataFormat=txt" download>Download As Plain Text</a>
-                    <a class="btn btn-primary" href="${pageContext.request.contextPath}/PollServlet?dataFormat=xml" download>Download As XML</a>
+                    <a class="btn btn-primary" href="${pageContext.request.contextPath}/PollServlet?dataFormat=xml" download="<%= pt%> ">Download As XML</a>
                     <a class="btn btn-primary" href="${pageContext.request.contextPath}/PollServlet?dataFormat=json" download>Download As JSON</a>
                 </div>
             </div>

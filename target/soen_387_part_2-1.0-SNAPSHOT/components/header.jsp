@@ -16,9 +16,24 @@
                 <li class="nav-item">
                     <a class="nav-link h6" href="AccessVotePage.jsp">Vote</a>
                 </li>
+                <% if(session.getAttribute("loggedInUser")!= null) { %>
                 <li class="nav-item">
                     <a class="nav-link h6" href="PollManagerPage.jsp">Manage Poll</a>
                 </li>
+                <% } %>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <% if(session.getAttribute("loggedInUser") == null) { %>
+                    <li class="nav-item">
+                        <a class="nav-link h6" href="login_page.jsp">Login</a>
+                    </li>
+                <% } %>
+                <% if(session.getAttribute("loggedInUser") != null) { %>
+                    <form action="${pageContext.request.contextPath}/LogoutServlet" method="post">
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
+                <% } %>
             </ul>
     </div>
 </nav>

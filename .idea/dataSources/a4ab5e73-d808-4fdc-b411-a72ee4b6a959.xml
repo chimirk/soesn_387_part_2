@@ -1208,24 +1208,28 @@
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="352" parent="337" name="PRIMARY">
+    <column id="352" parent="337" name="released_at">
+      <Position>7</Position>
+      <DataType>timestamp|0s</DataType>
+    </column>
+    <key id="353" parent="337" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>poll_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="353" parent="338" name="pin">
+    <column id="354" parent="338" name="pin">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="354" parent="338" name="choice_id">
+    <column id="355" parent="338" name="choice_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <index id="355" parent="338" name="votes_choices_choice_id_fk">
+    <index id="356" parent="338" name="votes_choices_choice_id_fk">
       <ColNames>choice_id</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="356" parent="338" name="votes_choices_choice_id_fk">
+    <foreign-key id="357" parent="338" name="votes_choices_choice_id_fk">
       <ColNames>choice_id</ColNames>
       <RefTableName>choices</RefTableName>
       <RefColNames>choice_id</RefColNames>
