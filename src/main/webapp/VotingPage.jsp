@@ -18,7 +18,7 @@
                 message = (String) session.getAttribute("message");
             }
             Poll poll = (Poll) request.getSession().getAttribute("poll");
-            String pt = poll.getTitle() + "-" + new java.sql.Timestamp(new Date().getTime()) + ".xml";
+            String pt = poll.getTitle() + "-" + poll.getReleasedAt() + ".xml";
         %>
         <% if(poll.getStatus() == PollStatus.RUNNING) { %>
         <form class="w-100 d-flex justify-content-center" action="${pageContext.request.contextPath}/PollServlet" method="post">
