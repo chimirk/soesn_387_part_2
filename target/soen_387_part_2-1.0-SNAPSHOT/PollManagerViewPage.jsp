@@ -1,11 +1,27 @@
 <%@ page import="java.io.IOException" %>
+<%@ page import="java.util.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="PMViewServicePage.jsp"%>
 <%@ include file="components/header.jsp"%>
-
+<%!
+    public Choice getRealKey(Hashtable<Choice,Integer> hashtable, Choice someChoice) {
+        for (Map.Entry<Choice, Integer> entry : hashtable.entrySet()) {
+            Choice choice = entry.getKey();
+            Integer integer = entry.getValue();
+            if ((choice.getText().compareTo(someChoice.getText()) == 0)
+                    && (choice.getDescription().compareTo(someChoice.getDescription()) == 0)) {
+                return choice;
+            };
+        }
+        return null;
+    }
+%>
 <%
     polls = pollManager.getAllPollsByUser(userID);
     currentPoll = polls.get(Integer.parseInt(index));
+    Hashtable<Choice, Integer> results = pollManager.getPollResults(currentPoll.getPollID(),userID);
+    ArrayList<Choice> keys = currentPoll.getChoices();
+    Choice key = null;
 %>
 <div class="container">
     <div class="row">
@@ -17,7 +33,7 @@
         <div class="col">
             <div class="d-flex align-items-center justify-content-center">
                 <form class="form-horizontal w-50 border border-3 rounded-3 border-primary p-4" action="PollManagerViewPage.jsp" method="post">
-                    <h1 class="text-center">"Current Poll"</h1>
+                    <h1 class="text-center">Current Poll</h1>
                     <div class="form-group mt-2 mb-3">
                         <label class="control-label fs-3" for="poll_title">Poll Title</label>
                         <input class="form-control" id="poll_title" type="text" value="<%= title %>" name="poll_title" required />
@@ -41,20 +57,17 @@
                             for(int i = 2;i < listOfChoiceText.length; i++){ %>
                         <div class="form-group mb-3">
                             <label class="control-label fs-4"  >Choice <%= i+1 %> </label>
-                            <% if(currentPoll == null || currentPoll.getStatus() != PollStatus.RELEASED){ %>
+                            <% System.out.println(currentPoll == null);
+                                if(currentPoll == null || currentPoll.getStatus() != PollStatus.RELEASED && currentPoll.getStatus() != PollStatus.CLOSED){ %>
                             <button type="button" class="btn-close" aria-label="Close" value="<%= i %>" onclick="removeChoice(event)"></button>
                             <% } %>
-                            <label>
-                                <input class="form-control m-1" type="text" placeholder="Enter Text" name="choice_text" value="<%= Objects.nonNull(listOfChoiceText) && listOfChoiceText.length>=i ? listOfChoiceText[i]: "" %>" required>
-                            </label>
-                            <label>
-                                <input class="form-control m-1" type="text" placeholder="Enter Description" name="description" value="<%= Objects.nonNull(listOfChoiceText) && listOfDescription.length>=i? listOfChoiceText[i]: "" %>" required>
-                            </label>
+                            <input class="form-control m-1" type="text" placeholder="Enter Text" name="choice_text" value="<%= Objects.nonNull(listOfChoiceText) && listOfChoiceText.length>=i ? listOfChoiceText[i]: "" %>" required>
+                            <input class="form-control m-1" type="text" placeholder="Enter Description" name="description" value="<%= Objects.nonNull(listOfChoiceText) && listOfDescription.length>=i? listOfChoiceText[i]: "" %>" required>
                         </div>
                         <% }
                         } %>
                     </div>
-                    <% if(currentPoll == null || currentPoll.getStatus() != PollStatus.RELEASED){ %>
+                    <% if(currentPoll == null || currentPoll.getStatus() != PollStatus.RELEASED && currentPoll.getStatus() != PollStatus.CLOSED){ %>
                     <button id="add" class="btn btn-primary"><i class="bi bi-plus-square"></i> Choice</button>
                     <% } %>
                     <br />
@@ -72,6 +85,26 @@
                     <button class="btn btn-lg btn-warning" type="submit" name="unrelease" value="unrelease"><span class="fs-5">Unrelease</span></button>
                     <button class="btn btn-lg btn-danger" type="submit" name = "clear" value="clear"><span class="fs-5">Clear</span></button>
                     <button class="btn btn-lg btn-danger" type="submit" name="close" value="close"><span class="fs-5">Close</span></button>
+                    <% } else if (Objects.nonNull(currentPoll) &&  currentPoll.getStatus() == PollStatus.CLOSED) {%>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Choice</th>
+                                    <th scope="col">Number of Votes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <%
+                                for(int i = 0; i < keys.size(); i++) {
+                                    key = getRealKey(results, keys.get(i));
+                                    Integer value = results.get(key);%>
+                                <tr>
+                                    <th scope="row"><%= key.getText() %></th>
+                                    <th><%= value %></th>
+                                </tr>
+                            <% } %>
+                            </tbody>
+                        </table>
                     <% } %>
                 </form>
             </div>

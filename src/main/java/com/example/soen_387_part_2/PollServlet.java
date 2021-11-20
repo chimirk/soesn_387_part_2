@@ -45,8 +45,10 @@ public class PollServlet extends HttpServlet {
             }
         } else if (format.equals("xml")) {
             printWriter = response.getWriter();
+
             try {
                 pollManager.downloadPollDetails(printWriter, filename, pollID, "xml");
+                System.out.println(filename);
             } catch (PollManagerException e) {
                 response.sendError(500, e.getMessage());
                 return;
@@ -79,13 +81,15 @@ public class PollServlet extends HttpServlet {
                 dispatcher.forward(request, response);
 
             } else if (filename.toString().endsWith(".xml")) {
+                String filenameS = "myPoll123";
                 String headerKey = "Content-Disposition";
-                String headerValue = String.format("attachment; filename=\"%s\"", filename.toString());
+                String headerValue = String.format("attachment; filename=\"%s\"", filenameS.toString());
                 response.setContentType("application/octet-stream");
                 response.setHeader(headerKey, headerValue);
                 response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1
                 response.setHeader("Pragma", "no-cache"); // HTTP 1.0
                 response.setDateHeader("Expires", 0); // Proxies.
+
 
                 Objects.requireNonNull(printWriter).close();
 

@@ -19,12 +19,13 @@
         PollManager pollManager = new PollManager();
         try {
             poll = pollManager.accessPoll(pollID);
-            if (poll.getStatus().equals(PollStatus.RELEASED)) {
-                request.getSession().setAttribute("errorMessage", "The poll has been RELEASED. Cannot vote on it anymore.");
+
+            if (poll.getStatus().equals(PollStatus.CLOSED)) {
+                request.getSession().setAttribute("errorMessage", "The poll has been CLOSED. Cannot vote on it anymore.");
                 response.sendRedirect("AccessVotePage.jsp");
                 return;
-            } else if (poll.getStatus().equals(PollStatus.CLOSED)) {
-                request.getSession().setAttribute("errorMessage", "The poll has been CLOSED. Cannot vote on it anymore.");
+            }else if(poll.getStatus().equals(PollStatus.CREATED)){
+                request.getSession().setAttribute("errorMessage", "The poll has been CREATED. Cannot vote currently.");
                 response.sendRedirect("AccessVotePage.jsp");
                 return;
             }

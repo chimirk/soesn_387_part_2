@@ -10,7 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="901ae218-199b-4c5c-9a2e-73d1fadd9815" name="Changes" comment="---login page us set up&#10;---business layer and data layer is in a temporary library&#10;-- added files from project 1&#10;-- the relative path working&#10;-- sign up sends an error, from get method in LoginServlet&#10;-- changed sign-up link to register link&#10;-- poll manager and poll manager view is working&#10;-- added delete button and functionality&#10;-- new Driver for config&#10;-- updated downloadFile method for xml and json&#10;--download various format working&#10;-- access page displays errors&#10;-- error handling in AccessServicePage.jsp poll released and poll closed&#10;-- no userID the pollmanager is redirected to login page&#10;-- xml download">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/business_layer_part2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/business_layer_part2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/business_layer_part2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/gson_2_8_2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2021_2_38_PM_[Changes]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2021_2_38_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2021_12_59_AM_[Changes]/Main.class" beforeDir="false" />
@@ -24,11 +25,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/soen_387_part_2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/soen_387_part_2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/soen_387_part_2/PollServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/soen_387_part_2/PollServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/VotingPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/VotingPage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/soen_387_part_2/LoginServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/soen_387_part_2/PollServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/json/JsonReader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/json/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/business_layer_part2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/business_layer_part2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/soen_387_part_2/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/soen_387_part_2/LoginServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/soen_387_part_2/PollServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/soen_387_part_2/PollServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/json/JsonReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/json/JsonReader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/AccessServicePage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/AccessServicePage.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/AccessVotePage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/AccessVotePage.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/PMServicePage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/PMServicePage.jsp" afterDir="false" />
@@ -36,7 +36,9 @@
       <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/VotingPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/VotingPage.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/classes/com/example/soen_387_part_2/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/classes/com/example/soen_387_part_2/LoginServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/classes/com/example/soen_387_part_2/PollServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/classes/com/example/soen_387_part_2/PollServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/classes/com/json/JsonReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/classes/com/json/JsonReader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/classes/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/classes/users.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/lib/business_layer_part2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/lib/business_layer_part2.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,13 +109,14 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mariadb&#10;mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/target/classes/com/json/JsonReader.class" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/backup/business_layer_part2.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15429688" />
@@ -122,6 +125,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tigerrrr\IdeaProjects\soesn_387_part_2TEMP\src\main\webapp\WEB-INF\lib" />
       <recent name="C:\Users\tigerrrr\IdeaProjects\soen_387_part_2\src\main\webapp\WEB-INF\lib" />
       <recent name="C:\Users\tigerrrr\IdeaProjects\soen_387_part_2\src\main\webapp" />
       <recent name="C:\Users\tigerrrr\IdeaProjects\soen_387_part_2\src\main\resources" />
@@ -284,7 +288,8 @@
       <workItem from="1637247093405" duration="332000" />
       <workItem from="1637256750733" duration="5308000" />
       <workItem from="1637264039385" duration="1123000" />
-      <workItem from="1637341840174" duration="8116000" />
+      <workItem from="1637341840174" duration="9143000" />
+      <workItem from="1637420873049" duration="5797000" />
     </task>
     <task id="LOCAL-00001" summary="---login page us set up&#10;---business layer and data layer is in a temporary library">
       <created>1636641362135</created>
@@ -419,7 +424,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637349585287</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="---login page us set up&#10;---business layer and data layer is in a temporary library&#10;-- added files from project 1&#10;-- the relative path working&#10;-- sign up sends an error, from get method in LoginServlet&#10;-- changed sign-up link to register link&#10;-- poll manager and poll manager view is working&#10;-- added delete button and functionality&#10;-- new Driver for config&#10;-- updated downloadFile method for xml and json&#10;--download various format working&#10;-- access page displays errors&#10;-- error handling in AccessServicePage.jsp poll released and poll closed&#10;-- no userID the pollmanager is redirected to login page&#10;-- xml download">
+      <created>1637350683763</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1637350683763</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -461,6 +473,11 @@
           <properties class="java.sql.SQLException" package="java.sql" />
           <option name="timeStamp" value="2" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/webapp/AccessServicePage.jsp</url>
+          <line>10</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

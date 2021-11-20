@@ -1,4 +1,6 @@
 <%@ page import="com.pollmanager.*" %>
+<%@ page import="java.security.Timestamp" %>
+<%@ page import="java.util.*" %>
 <%@ page errorPage="errorPage.jsp" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="components/header.jsp"%>
@@ -16,6 +18,7 @@
                 message = (String) session.getAttribute("message");
             }
             Poll poll = (Poll) request.getSession().getAttribute("poll");
+            String pt = poll.getTitle() + "-" + poll.getReleasedAt() + ".xml";
         %>
         <% if(poll.getStatus() == PollStatus.RUNNING) { %>
         <form class="w-100 d-flex justify-content-center" action="${pageContext.request.contextPath}/PollServlet" method="post">
@@ -26,7 +29,7 @@
                         <%= message %>
                     </div>
                     <% } %>
-                    <h1 class="card-title display-4 text-center"><%= poll.getTitle()+"-"+ session.getAttribute("voterPin") %></h1>
+                    <h1 class="card-title display-4 text-center"><%= poll.getTitle() %></h1>
                     <h1 class="card-text display-6"><%= poll.getQuestion() %></h1>
                 </div>
                 <ul class="list-group list-group-flush">
@@ -46,6 +49,8 @@
                     <input type="hidden" value="<%= session.getAttribute("voterPin")%>" name="voterPin">
                     <input type="hidden" value="<%= poll.getPollID() %>" name="pollID">
                     <button class="btn btn-primary" type="submit" name="vote" value="vote">Vote</button>
+                    <br/>
+                    <p class="display-6">Your PIN: <%= session.getAttribute("voterPin") %></p>
                 </div>
             </div>
         </form>
@@ -55,26 +60,11 @@
                 <div id="piechart" style="width: 900px; height: 500px;"></div>
             </div>
             <div class="card-body ">
-                <form  class="w-100 " action="${pageContext.request.contextPath}/PollServlet" method="get">
-                    <input type="hidden" value="<%= poll.getPollID() %>" name="pollID">
-                    <div class="d-flex justify-content-center">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="dataFormat" id="txt" value="txt">
-                            <label class="form-check-label" for="txt">Plain Text</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="dataFormat" id="xml" value="xml">
-                            <label class="form-check-label" for="xml">XML</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="dataFormat" id="json" value="json">
-                            <label class="form-check-label" for="json">JSON</label>
-                        </div>
-                    </div>
-                    <div class="d-grid gap-2 col-6 mx-auto">
-                        <input type="submit" class="btn btn-primary" name="Download" value="Download"/>
-                    </div>
-                </form>
+                <div class="d-flex justify-content-around">
+                    <a class="btn btn-primary" href="${pageContext.request.contextPath}/PollServlet?dataFormat=txt" download>Download As Plain Text</a>
+                    <a class="btn btn-primary" href="${pageContext.request.contextPath}/PollServlet?dataFormat=xml" download="<%= pt%> ">Download As XML</a>
+                    <a class="btn btn-primary" href="${pageContext.request.contextPath}/PollServlet?dataFormat=json" download>Download As JSON</a>
+                </div>
             </div>
         </div>
         <% } }else{ %>
