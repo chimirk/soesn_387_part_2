@@ -1,11 +1,27 @@
 <%@ page import="java.io.IOException" %>
+<%@ page import="java.util.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="PMViewServicePage.jsp"%>
 <%@ include file="components/header.jsp"%>
-
+<%!
+    public Choice getRealKey(Hashtable<Choice,Integer> hashtable, Choice someChoice) {
+        for (Map.Entry<Choice, Integer> entry : hashtable.entrySet()) {
+            Choice choice = entry.getKey();
+            Integer integer = entry.getValue();
+            if ((choice.getText().compareTo(someChoice.getText()) == 0)
+                    && (choice.getDescription().compareTo(someChoice.getDescription()) == 0)) {
+                return choice;
+            };
+        }
+        return null;
+    }
+%>
 <%
     polls = pollManager.getAllPollsByUser(userID);
     currentPoll = polls.get(Integer.parseInt(index));
+    Hashtable<Choice, Integer> results = pollManager.getPollResults(currentPoll.getPollID(),userID);
+    ArrayList<Choice> keys = currentPoll.getChoices();
+    Choice key = null;
 %>
 <div class="container">
     <div class="row">
@@ -69,6 +85,26 @@
                     <button class="btn btn-lg btn-warning" type="submit" name="unrelease" value="unrelease"><span class="fs-5">Unrelease</span></button>
                     <button class="btn btn-lg btn-danger" type="submit" name = "clear" value="clear"><span class="fs-5">Clear</span></button>
                     <button class="btn btn-lg btn-danger" type="submit" name="close" value="close"><span class="fs-5">Close</span></button>
+                    <% } else if (Objects.nonNull(currentPoll) &&  currentPoll.getStatus() == PollStatus.CLOSED) {%>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Choice</th>
+                                    <th scope="col">Number of Votes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <%
+                                for(int i = 0; i < keys.size(); i++) {
+                                    key = getRealKey(results, keys.get(i));
+                                    Integer value = results.get(key);%>
+                                <tr>
+                                    <th scope="row"><%= key.getText() %></th>
+                                    <th><%= value %></th>
+                                </tr>
+                            <% } %>
+                            </tbody>
+                        </table>
                     <% } %>
                 </form>
             </div>
