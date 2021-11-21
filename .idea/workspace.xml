@@ -9,7 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="901ae218-199b-4c5c-9a2e-73d1fadd9815" name="Changes" comment="---login page us set up&#10;---business layer and data layer is in a temporary library&#10;-- added files from project 1&#10;-- the relative path working&#10;-- sign up sends an error, from get method in LoginServlet&#10;-- changed sign-up link to register link&#10;-- poll manager and poll manager view is working&#10;-- added delete button and functionality&#10;-- new Driver for config&#10;-- updated downloadFile method for xml and json&#10;--download various format working&#10;-- access page displays errors&#10;-- error handling in AccessServicePage.jsp poll released and poll closed&#10;-- no userID the pollmanager is redirected to login page&#10;-- xml download&#10;-- added the new business_layer_part2.jar that includes necessary dependencies." />
+    <list default="true" id="901ae218-199b-4c5c-9a2e-73d1fadd9815" name="Changes" comment="---login page us set up&#10;---business layer and data layer is in a temporary library&#10;-- added files from project 1&#10;-- the relative path working&#10;-- sign up sends an error, from get method in LoginServlet&#10;-- changed sign-up link to register link&#10;-- poll manager and poll manager view is working&#10;-- added delete button and functionality&#10;-- new Driver for config&#10;-- updated downloadFile method for xml and json&#10;--download various format working&#10;-- access page displays errors&#10;-- error handling in AccessServicePage.jsp poll released and poll closed&#10;-- no userID the pollmanager is redirected to login page&#10;-- xml download&#10;-- added the new business_layer_part2.jar that includes necessary dependencies.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -258,6 +260,7 @@
       <workItem from="1637264039385" duration="1123000" />
       <workItem from="1637341840174" duration="9143000" />
       <workItem from="1637420873049" duration="6295000" />
+      <workItem from="1637450528337" duration="581000" />
     </task>
     <task id="LOCAL-00001" summary="---login page us set up&#10;---business layer and data layer is in a temporary library">
       <created>1636641362135</created>
@@ -406,7 +409,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637447420917</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="---login page us set up&#10;---business layer and data layer is in a temporary library&#10;-- added files from project 1&#10;-- the relative path working&#10;-- sign up sends an error, from get method in LoginServlet&#10;-- changed sign-up link to register link&#10;-- poll manager and poll manager view is working&#10;-- added delete button and functionality&#10;-- new Driver for config&#10;-- updated downloadFile method for xml and json&#10;--download various format working&#10;-- access page displays errors&#10;-- error handling in AccessServicePage.jsp poll released and poll closed&#10;-- no userID the pollmanager is redirected to login page&#10;-- xml download&#10;-- added the new business_layer_part2.jar that includes necessary dependencies.">
+      <created>1637450736173</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1637450736173</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
