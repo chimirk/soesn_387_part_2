@@ -29,6 +29,10 @@
             <div class="d-grid gap-2 col-6 mx-auto">
                 <button class="btn btn-primary" type="submit" name="login_btn" >Login</button>
             </div>
+            <br/>
+            <p class="">
+                Not yet a member? <a href="${pageContext.request.contextPath}/LoginServlet?signup=TRUE">Register</a>
+            </p>
         </form>
     </div>
 </div>
