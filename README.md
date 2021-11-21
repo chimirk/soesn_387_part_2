@@ -37,7 +37,7 @@ Password: `password`
 ---
 ####  After downloading or cloning the project, it may not compile due to the following error(s):
 **Error**: package com.pollmanager does not exist <br />
-**Fix**: Import `PollBusinessLayer.jar` as a library in your project located at `PollWebsite/src/main/webapp/WEB-INF/lib/PollBusinessLayer.jar`.
+**Fix**: Import `business_layer_part2.jar` as a library in your project located at `PollWebsite/src/main/webapp/WEB-INF/lib/business_layer_part2.jar`.
 
 ####  Connection Problem with the Database:
 **Note**: Make sure that the database username is `root` and the password field is empty.
