@@ -9,6 +9,8 @@ Pierrick Catalo | 40087503
 Israt Noor Kazi | 40029299
 Mircea Chirca | 40004027
 
+## Application Description
+Our poll system is an application that allows logged users to take the role of poll manager and create, run, release, close or delete a poll. A poll manager can manage only their polls. Users do not need to log in to vote. If the user votes for the first time and does not have a pin, the application will automatically create one for them. To vote as a new voter for a poll, the user enters the poll id. If the voter wishes to update their vote, they must enter the poll id with their PIN voter for that poll. Once a poll is closed, it can only be viewed by the owner.
 ## Tools Used
 * `IntelliJ IDEA`
 * `Apache Tomcat`
