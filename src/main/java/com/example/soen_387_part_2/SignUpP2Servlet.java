@@ -64,7 +64,7 @@ public class SignUpP2Servlet extends HttpServlet {
                 if (e.getMessage().equals("password or username is empty or null")) {
                     errors.add("password or username is empty or null");
                     request.setAttribute("errors", errors);
-                    String destination = "Registration_Page_Step_Two.jsp";
+                    String destination = "RegistrationPageStepTwo.jsp";
                     RequestDispatcher dispatcher = request.getRequestDispatcher(destination);
                     dispatcher.forward(request, response);
                     return;
@@ -73,7 +73,7 @@ public class SignUpP2Servlet extends HttpServlet {
             }
         } else {
             request.setAttribute("errors", errors);
-            String destination = "Registration_Page_Step_Two.jsp";
+            String destination = "RegistrationPageStepTwo.jsp";
             RequestDispatcher dispatcher = request.getRequestDispatcher(destination);
             dispatcher.forward(request, response);
         }

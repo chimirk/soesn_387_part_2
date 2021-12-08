@@ -13,14 +13,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 @WebServlet(name = "ActivateAccountNewUser", value = "/ActivateAccountNewUser")
-public class ActivateAccountNewUser extends HttpServlet {
+public class SignUpP1Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String token = request.getParameter("thisToken");
         String userName = request.getParameter("thisUserName");
         request.setAttribute("signUpToken", token);
         request.setAttribute("userName", userName);
-        String destination = "Registration_Page_Step_Two.jsp";
+        String destination = "RegistrationPageStepTwo.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(destination);
         dispatcher.forward(request, response);
 
@@ -57,7 +57,7 @@ public class ActivateAccountNewUser extends HttpServlet {
             } catch (Exception e) {
                 if (e.getMessage().equals("This username is already registered")){
                     errors.add("This username is already registered");
-                    String destination = "Registration_Page_Step_One.jsp";
+                    String destination = "RegistrationPageStepOne.jsp";
                     RequestDispatcher dispatcher = request.getRequestDispatcher(destination);
                     dispatcher.forward(request, response);
                     return;
@@ -66,7 +66,7 @@ public class ActivateAccountNewUser extends HttpServlet {
             }
         } else {
             request.setAttribute("errors", errors);
-            String destination = "Registration_Page_Step_One.jsp";
+            String destination = "RegistrationPageStepOne.jsp";
             RequestDispatcher dispatcher = request.getRequestDispatcher(destination);
             dispatcher.forward(request, response);
         }

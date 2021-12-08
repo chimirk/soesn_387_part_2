@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 @WebServlet(name = "ActivateAccountForgetPassword", value = "/ActivateAccountForgetPassword")
-public class ActivateAccountForgetPassword extends HttpServlet {
+public class ForgotPasswordP1Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String token = request.getParameter("thisToken");
