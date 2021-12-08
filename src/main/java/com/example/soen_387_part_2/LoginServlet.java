@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
         if (signUpRequest != null && signUpRequest.equals("TRUE")) {
             response.sendRedirect("Registration_Page_Step_One.jsp");
         } else if (forgotPasswordRequest != null && forgotPasswordRequest.equals("TRUE")) {
-            response.sendRedirect("ForgotPassword_Page_Step_One.jsp");
+            response.sendRedirect("ForgotPasswordStepOne.jsp");
         }
     }
 

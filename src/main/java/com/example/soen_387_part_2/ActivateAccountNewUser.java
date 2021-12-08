@@ -33,7 +33,6 @@ public class ActivateAccountNewUser extends HttpServlet {
         ArrayList<String> errors = new ArrayList();
         ArrayList<String> messages = new ArrayList<>();
 
-        //request comes from step one
         String newUserName = request.getParameter("new_username");
         String newUserEmail = request.getParameter("new_user_email");
         String newUserFullName = request.getParameter("new_user_full_name");
