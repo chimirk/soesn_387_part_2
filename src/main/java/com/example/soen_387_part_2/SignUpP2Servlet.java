@@ -7,7 +7,10 @@ import com.usermanagementlayer.UserManagementImpl;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
+import javax.xml.bind.DatatypeConverter;
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 @WebServlet(name = "ActivateNewUserPartTwoServlet", value = "/ActivateNewUserPartTwoServlet")
@@ -36,9 +39,22 @@ public class SignUpP2Servlet extends HttpServlet {
         } else if (!passwordOne.equals(passwordTwo)) {
             errors.add("password one and password two don't match");
         }
+
+        String passwordHashed = "";
+        MessageDigest md1 = null;
+        try {
+            md1 = MessageDigest.getInstance("MD5");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        md1.update(passwordOne.getBytes());
+        byte[] digest1 = md1.digest();
+        passwordHashed = DatatypeConverter
+                .printHexBinary(digest1).toUpperCase();
+
         if (errors.size() == 0) {
             try {
-                userAdministration.emailVerificationForSignUp(signUpToken, passwordOne);
+                userAdministration.emailVerificationForSignUp(signUpToken, passwordHashed);
                 messages.add("Registration completed successfully");
                 request.setAttribute("messages", messages);
                 String destination = "login_page.jsp";

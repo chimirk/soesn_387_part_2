@@ -1,7 +1,13 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.pollmanager.*" %>
 <%@ page import="java.util.Objects" %>
+<%--
 <%@ page import="com.json.User" %>
+--%>
+<%--
+<%@ page import="com.databaseUM.helper.User" %>
+--%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--
 <%@page errorPage="errorPage.jsp" %>
@@ -18,10 +24,10 @@
     String userID = "";
     String pollID = "";
 
-
-    User user = (User) session.getAttribute("loggedInUser");
+    com.databaseUM.helper.User user = (com.databaseUM.helper.User) session.getAttribute("loggedInUser");
+    //User user = (User) session.getAttribute("loggedInUser");
     if (user != null) {
-        userID = user.id;
+        userID = user.getUsername();
     } else {
         response.sendRedirect("login_page.jsp");
         return;

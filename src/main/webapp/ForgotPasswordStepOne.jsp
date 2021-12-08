@@ -20,7 +20,7 @@
             <h1 class=" display-5 text-center">Forgot Password Page Step 1</h1>
             <div class="form-group mt-2 mb-3">
                 <label class="control-label fs-3" for="fp_email">Email</label>
-                <input class="form-control" type="text" placeholder="Enter the email related to your account" id="fp_email" name="fp_email" required />
+                <input class="form-control" type="email" placeholder="Enter the email related to your account" id="fp_email" name="fp_email" required />
             </div>
             <div class="d-grid gap-2 col-6 mx-auto">
                 <button class="btn btn-primary" type="submit" name="fp_step_one_btn" >Submit</button>

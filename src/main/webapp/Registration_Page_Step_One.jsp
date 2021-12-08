@@ -24,7 +24,7 @@
             </div>
             <div class="form-group mt-2 mb-3">
                 <label class="control-label fs-3" for="new_user_email">Email</label>
-                <input class="form-control" type="text" placeholder="Enter email" id="new_user_email" name="new_user_email" required />
+                <input class="form-control" type="email" placeholder="Enter email" id="new_user_email" name="new_user_email" required />
             </div>
             <div class="form-group mt-2 mb-3">
                 <label class="control-label fs-3" for="new_user_full_name">Full Name</label>

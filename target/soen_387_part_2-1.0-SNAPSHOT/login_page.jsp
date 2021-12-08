@@ -19,7 +19,7 @@
             </div>
             <% } %>
             <% if (messages != null) { %>
-            <div class="alert alert-danger" role="alert">
+            <div class="alert alert-success" role="alert">
                 <ul>
                     <% for (int i = 0; i < messages.size(); i++) { %>
                     <li><%= messages.get(i)%></li>
