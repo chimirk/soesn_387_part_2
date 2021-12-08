@@ -10,7 +10,67 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="901ae218-199b-4c5c-9a2e-73d1fadd9815" name="Changes" comment="---login page us set up&#10;---business layer and data layer is in a temporary library&#10;-- added files from project 1&#10;-- the relative path working&#10;-- sign up sends an error, from get method in LoginServlet&#10;-- changed sign-up link to register link&#10;-- poll manager and poll manager view is working&#10;-- added delete button and functionality&#10;-- new Driver for config&#10;-- updated downloadFile method for xml and json&#10;--download various format working&#10;-- access page displays errors&#10;-- error handling in AccessServicePage.jsp poll released and poll closed&#10;-- no userID the pollmanager is redirected to login page&#10;-- xml download&#10;-- added the new business_layer_part2.jar that includes necessary dependencies.">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/business_layer_part2__3_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/business_layer_part2__4_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/business_layer_part2__5_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/business_layer_part3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/business_layer_part3__10_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/business_layer_part3__11_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/business_layer_part3__12_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/business_layer_part3__2_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/business_layer_part3__3_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/business_layer_part3__4_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/business_layer_part3__5_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/business_layer_part3__6_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/business_layer_part3__7_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/business_layer_part3__8_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/business_layer_part3__9_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/soen_387_part_2/ActivateAccountForgetPassword.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/soen_387_part_2/ActivateAccountNewUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/soen_387_part_2/ActivateNewUserPartTwoServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Registration_Page_Step_One.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Registration_Page_Step_Two.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/soen_387_part_2_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/soen_387_part_2_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a4ab5e73-d808-4fdc-b411-a72ee4b6a959.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a4ab5e73-d808-4fdc-b411-a72ee4b6a959.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_activation_jakarta_activation_2_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_mail_jakarta_mail_2_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_3_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_persistence_org_eclipse_persistence_asm_3_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_persistence_org_eclipse_persistence_core_3_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_persistence_org_eclipse_persistence_moxy_3_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/business_layer_part2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/business_layer_part2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/business_layer_part2__2_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/business_layer_part2__2_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_16_2021_10_01_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_16_2021_10_01_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_16_2021_10_27_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_16_2021_10_27_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_16_2021_9_59_PM_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_16_2021_9_59_PM__Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_17_2021_12_17_AM_[Changes]/business_layer_part2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_17_2021_12_17_AM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_17_2021_12_17_AM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_20_2021_10_11_AM_[Changes]/LoginServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_20_2021_10_11_AM_[Changes]/LoginServlet1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_20_2021_10_11_AM_[Changes]/PollServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_20_2021_10_11_AM_[Changes]/PollServlet1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_20_2021_10_11_AM_[Changes]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/soen_387_part_2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/soen_387_part_2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/soen_387_part_2/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/soen_387_part_2/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/VotingPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/VotingPage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/business_layer_part2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/business_layer_part2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login_page.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login_page.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/soen_387_part_2/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/soen_387_part_2/LoginServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/AccessServicePage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/AccessServicePage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/PollManagerViewPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/PollManagerViewPage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/VotingPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/VotingPage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/classes/com/example/soen_387_part_2/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/classes/com/example/soen_387_part_2/LoginServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/lib/business_layer_part2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/lib/business_layer_part2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/login_page.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/soen_387_part_2-1.0-SNAPSHOT/login_page.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,16 +83,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jsp File" />
         <option value="package.json" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -54,7 +114,7 @@
     </option>
     <option name="myId2Visible">
       <map>
-        <entry key="JPA Palette" value="true" />
+        <entry key="JPA Palette" value="false" />
         <entry key="JPA Structure" value="false" />
       </map>
     </option>
@@ -84,11 +144,12 @@
     <property name="DatabaseDriversLRU" value="mariadb&#10;mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/target/classes/com/json/JsonReader.class" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15429688" />
     <property name="project.structure.side.proportion" value="0.3459001" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
@@ -101,11 +162,11 @@
       <recent name="C:\Users\tigerrrr\IdeaProjects\soen_387_part_2\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tigerrrr\IdeaProjects\soesn_387_part_2TEMP\src\main\webapp" />
       <recent name="C:\Users\tigerrrr\IdeaProjects\soen_387_part_2\src\main\resources" />
       <recent name="C:\Users\tigerrrr\IdeaProjects\soen_387_part_2\src\main\resources\jsonfiles" />
       <recent name="C:\Users\tigerrrr\IdeaProjects\soen_387_part_2\src\main\webapp\WEB-INF\jsonfile" />
       <recent name="C:\Users\tigerrrr\IdeaProjects\soen_387_part_2\src" />
-      <recent name="C:\Users\tigerrrr\IdeaProjects\soen_387_part_2\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.soen_387_part_2" />
@@ -260,7 +321,21 @@
       <workItem from="1637264039385" duration="1123000" />
       <workItem from="1637341840174" duration="9143000" />
       <workItem from="1637420873049" duration="6295000" />
-      <workItem from="1637450528337" duration="581000" />
+      <workItem from="1637450528337" duration="2072000" />
+      <workItem from="1637532530025" duration="642000" />
+      <workItem from="1637619548924" duration="5090000" />
+      <workItem from="1637638540516" duration="649000" />
+      <workItem from="1637640126256" duration="1214000" />
+      <workItem from="1637697591625" duration="1886000" />
+      <workItem from="1637710303458" duration="1225000" />
+      <workItem from="1637712703036" duration="8000" />
+      <workItem from="1637875321221" duration="2972000" />
+      <workItem from="1638144330061" duration="752000" />
+      <workItem from="1638146910857" duration="1221000" />
+      <workItem from="1638258794994" duration="19000" />
+      <workItem from="1638861628709" duration="8344000" />
+      <workItem from="1638897741678" duration="13211000" />
+      <workItem from="1638916469935" duration="11620000" />
     </task>
     <task id="LOCAL-00001" summary="---login page us set up&#10;---business layer and data layer is in a temporary library">
       <created>1636641362135</created>
@@ -416,7 +491,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637450736173</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="---login page us set up&#10;---business layer and data layer is in a temporary library&#10;-- added files from project 1&#10;-- the relative path working&#10;-- sign up sends an error, from get method in LoginServlet&#10;-- changed sign-up link to register link&#10;-- poll manager and poll manager view is working&#10;-- added delete button and functionality&#10;-- new Driver for config&#10;-- updated downloadFile method for xml and json&#10;--download various format working&#10;-- access page displays errors&#10;-- error handling in AccessServicePage.jsp poll released and poll closed&#10;-- no userID the pollmanager is redirected to login page&#10;-- xml download&#10;-- added the new business_layer_part2.jar that includes necessary dependencies.">
+      <created>1637461026125</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1637461026125</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -463,6 +545,16 @@
           <url>file://$PROJECT_DIR$/src/main/webapp/AccessServicePage.jsp</url>
           <line>10</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/business_layer_part3.jar!/com/gateways/plugins/EmailVerPlugin1.class</url>
+          <line>41</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/soen_387_part_2/ActivateNewUserPartTwoServlet.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

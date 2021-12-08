@@ -15,6 +15,29 @@
         }
         return null;
     }
+
+    public boolean isVoted(Poll poll, String userID){
+        PollManager pollManager = new PollManager();
+        Hashtable<Choice, Integer> results = new Hashtable<>();
+        try {
+            results = pollManager.getPollResults(poll.getPollID(),userID);
+        } catch (PollManagerException e) {
+            e.printStackTrace();
+        }
+        ArrayList<Choice> keys = poll.getChoices();
+        Choice key = null;
+
+
+        for(int i = 0; i < keys.size(); i++) {
+            key = getRealKey(results, keys.get(i));
+            Integer value = results.get(key);
+            if(value>0){
+                return true;
+            }
+        }
+
+        return false;
+    }
 %>
 <%
     polls = pollManager.getAllPollsByUser(userID);
@@ -26,14 +49,16 @@
 <div class="container">
     <div class="row">
         <div class="col-0 justify-content-end">
-            <div class="h1">
-                <a href="PollManagerPage.jsp">Back</a>
-            </div>
+            <a class="btn btn-primary display-4" href="PollManagerPage.jsp">Back</a>
         </div>
         <div class="col">
             <div class="d-flex align-items-center justify-content-center">
                 <form class="form-horizontal w-50 border border-3 rounded-3 border-primary p-4" action="PollManagerViewPage.jsp" method="post">
-                    <h1 class="text-center">Current Poll</h1>
+                    <h1 class="text-center">Current Poll
+                        <% if(!isVoted(currentPoll, userID)){ %>
+                        <button class="btn btn-danger ms-2" type="submit" name="delete" value="delete"><i class="bi bi-trash"></i>Delete</button>
+                        <% } %>
+                    </h1>
                     <div class="form-group mt-2 mb-3">
                         <label class="control-label fs-3" for="poll_title">Poll Title</label>
                         <input class="form-control" id="poll_title" type="text" value="<%= title %>" name="poll_title" required />
@@ -76,7 +101,6 @@
                     <% if(Objects.nonNull(currentPoll) && currentPoll.getStatus() == PollStatus.CREATED) { %>
                     <button class="btn btn-warning" type="submit" name="update" value="update"><span class="fs-5">Update</span></button>
                     <button class="btn btn-success" type="submit"  name="run" value="run"><span class="fs-5">Run</span></button>
-                    <button class="btn btn-lg btn-danger" type="submit" name="delete" value="delete"><span class="fs-5">Delete</span></button>
                     <% } else if (Objects.nonNull(currentPoll)  && currentPoll.getStatus() == PollStatus.RUNNING) {%>
                     <button class="btn btn-warning" type="submit" name="update" value="update"><span class="fs-5">Update</span></button>
                     <button class="btn btn-lg btn-info" type="submit" name="release" value="release"><span class="fs-5">Release</span></button>

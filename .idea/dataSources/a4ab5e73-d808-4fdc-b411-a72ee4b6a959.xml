@@ -1140,96 +1140,170 @@
       <Host>localhost</Host>
     </user>
     <table id="336" parent="6" name="choices"/>
-    <table id="337" parent="6" name="poll"/>
-    <table id="338" parent="6" name="votes"/>
-    <column id="339" parent="336" name="poll_id">
+    <table id="337" parent="6" name="forgot_password_tokens"/>
+    <table id="338" parent="6" name="poll"/>
+    <table id="339" parent="6" name="users"/>
+    <table id="340" parent="6" name="verification_tokens"/>
+    <table id="341" parent="6" name="votes"/>
+    <column id="342" parent="336" name="poll_id">
       <Position>1</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="340" parent="336" name="choice_id">
+    <column id="343" parent="336" name="choice_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="341" parent="336" name="text">
+    <column id="344" parent="336" name="text">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="342" parent="336" name="description">
+    <column id="345" parent="336" name="description">
       <Position>4</Position>
       <DataType>text|0s</DataType>
     </column>
-    <index id="343" parent="336" name="choices_poll_poll_id_fk">
+    <index id="346" parent="336" name="choices_poll_poll_id_fk">
       <ColNames>poll_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="344" parent="336" name="PRIMARY">
+    <key id="347" parent="336" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>choice_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="345" parent="336" name="choices_poll_poll_id_fk">
+    <foreign-key id="348" parent="336" name="choices_poll_poll_id_fk">
       <ColNames>poll_id</ColNames>
       <RefTableName>poll</RefTableName>
       <RefColNames>poll_id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="346" parent="337" name="poll_id">
+    <column id="349" parent="337" name="forgot_password_token">
+      <Position>1</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="350" parent="337" name="username">
+      <Position>2</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="351" parent="337" name="change_password_tokens_pk">
+      <ColNames>forgot_password_token
+username</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="352" parent="337" name="change_password_tokens_pk">
+      <ColNames>forgot_password_token
+username</ColNames>
+      <UnderlyingIndexName>change_password_tokens_pk</UnderlyingIndexName>
+    </key>
+    <column id="353" parent="338" name="poll_id">
       <Position>1</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="347" parent="337" name="title">
+    <column id="354" parent="338" name="title">
       <Position>2</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="348" parent="337" name="question">
+    <column id="355" parent="338" name="question">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="349" parent="337" name="created_at">
+    <column id="356" parent="338" name="created_at">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>current_timestamp()</DefaultExpression>
     </column>
-    <column id="350" parent="337" name="status">
+    <column id="357" parent="338" name="status">
       <Position>5</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="351" parent="337" name="user_id">
+    <column id="358" parent="338" name="user_id">
       <Position>6</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="352" parent="337" name="released_at">
+    <column id="359" parent="338" name="released_at">
       <Position>7</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <key id="353" parent="337" name="PRIMARY">
+    <key id="360" parent="338" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>poll_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="354" parent="338" name="pin">
+    <column id="361" parent="339" name="username">
+      <Position>1</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="362" parent="339" name="password">
+      <Position>2</Position>
+      <DataType>varchar(50)|0s</DataType>
+    </column>
+    <column id="363" parent="339" name="email">
+      <Position>3</Position>
+      <DataType>varchar(50)|0s</DataType>
+    </column>
+    <column id="364" parent="339" name="full_name">
+      <Position>4</Position>
+      <DataType>varchar(30)|0s</DataType>
+    </column>
+    <column id="365" parent="339" name="isValidated">
+      <Position>5</Position>
+      <DataType>varchar(1)|0s</DataType>
+    </column>
+    <index id="366" parent="339" name="users_email_uindex">
+      <ColNames>email</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="367" parent="339" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>username</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="368" parent="339" name="users_email_uindex">
+      <ColNames>email</ColNames>
+      <UnderlyingIndexName>users_email_uindex</UnderlyingIndexName>
+    </key>
+    <column id="369" parent="340" name="verification_token">
+      <Position>1</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="370" parent="340" name="username">
+      <Position>2</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="371" parent="340" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>verification_token</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="372" parent="341" name="pin">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="355" parent="338" name="choice_id">
+    <column id="373" parent="341" name="choice_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <index id="356" parent="338" name="votes_choices_choice_id_fk">
+    <index id="374" parent="341" name="votes_choices_choice_id_fk">
       <ColNames>choice_id</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="357" parent="338" name="votes_choices_choice_id_fk">
+    <foreign-key id="375" parent="341" name="votes_choices_choice_id_fk">
       <ColNames>choice_id</ColNames>
       <RefTableName>choices</RefTableName>
       <RefColNames>choice_id</RefColNames>

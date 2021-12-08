@@ -3,6 +3,7 @@
 
 <%
     ArrayList errors = (ArrayList) request.getAttribute("errors");
+    ArrayList messages = (ArrayList) request.getAttribute("messages");
 %>
 <%@ include file="components/header.jsp"%>
 <div class="container">
@@ -14,6 +15,15 @@
                 <% for (int i = 0; i < errors.size(); i++) { %>
                 <li><%= errors.get(i)%></li>
                 <% } %>
+                </ul>
+            </div>
+            <% } %>
+            <% if (messages != null) { %>
+            <div class="alert alert-danger" role="alert">
+                <ul>
+                    <% for (int i = 0; i < messages.size(); i++) { %>
+                    <li><%= messages.get(i)%></li>
+                    <% } %>
                 </ul>
             </div>
             <% } %>
@@ -32,6 +42,9 @@
             <br/>
             <p class="">
                 Not yet a member? <a href="${pageContext.request.contextPath}/LoginServlet?signup=TRUE">Register</a>
+            </p>
+            <p class="">
+                Forgot password? <a href="${pageContext.request.contextPath}/LoginServlet?forgotPass=TRUE">Forgot Password</a>
             </p>
         </form>
     </div>

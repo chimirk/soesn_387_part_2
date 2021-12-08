@@ -1,8 +1,6 @@
 <component name="libraryTable">
   <library name="business_layer_part2">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/business_layer_part2.jar!/" />
-    </CLASSES>
+    <CLASSES />
     <JAVADOC />
     <SOURCES />
   </library>

@@ -14,22 +14,29 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.Enumeration;
 
 @WebServlet(name = "LoginServlet", value = "/LoginServlet")
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Enumeration<String> parameterNames = request.getParameterNames();
+        /*Enumeration<String> parameterNames = request.getParameterNames();
         while (parameterNames.hasMoreElements()) {
             String parameterName = parameterNames.nextElement();
             String[] parameterValues = request.getParameterValues(parameterName);
             for (int i = 0; i < parameterValues.length; i++) {
                 String parameterValue = parameterValues[i];
                 if (parameterValue.equals("TRUE")) {
-                    response.sendError(500, "REGISTRATION IS NOT IMPLEMENTED YET. PLEASE TRY AGAIN LATER.");
+                    response.sendRedirect("Registration_Page_Step_One.jsp");
+                    //response.sendError(500, "REGISTRATION IS NOT IMPLEMENTED YET. PLEASE TRY AGAIN LATER.");
                 }
             }
+        }*/
+        String signUpRequest = request.getParameter("signup");
+        String forgotPasswordRequest = request.getParameter("forgotPass");
+        if (signUpRequest != null && signUpRequest.equals("TRUE")) {
+            response.sendRedirect("Registration_Page_Step_One.jsp");
+        } else if (forgotPasswordRequest != null && forgotPasswordRequest.equals("TRUE")) {
+            response.sendRedirect("ForgotPassword_Page_Step_One.jsp");
         }
     }
 

@@ -35,29 +35,29 @@
             <version>2.3.0</version>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>jakarta.xml.bind</groupId>
             <artifactId>jakarta.xml.bind-api</artifactId>
             <version>3.0.0</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-impl</artifactId>
             <version>3.0.0</version>
             <scope>runtime</scope>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>jakarta.xml.bind</groupId>
             <artifactId>jakarta.xml.bind-api</artifactId>
             <version>3.0.0</version>
-        </dependency>
+        </dependency>-->
 
         <!-- JAXB RI, EclipseLink MOXy -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>org.eclipse.persistence.moxy</artifactId>
             <version>3.0.0</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>mysql</groupId>
@@ -99,6 +99,21 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <!--<dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.5.0-b01</version>
+        </dependency>-->
+        <!--<dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>1.1.1</version>
+        </dependency>-->
     </dependencies>
 
     <build>

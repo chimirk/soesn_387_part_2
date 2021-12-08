@@ -30,7 +30,12 @@
                 return;
             }
         } catch (PollManagerException e) {
-            request.getSession().setAttribute("errorMessage", "Entered POLL ID does not exist in the system");
+            if(e.getMessage().equals("There is no poll with this poll ID.")){
+                request.getSession().setAttribute("errorMessage", "Entered POLL ID does not exist in the system");
+            }else{
+                request.getSession().setAttribute("errorMessage", "This poll is not available for voting now.");
+            }
+
             response.sendRedirect("AccessVotePage.jsp");
             return;
         }

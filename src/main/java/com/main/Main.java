@@ -1,30 +1,18 @@
 package com.main;
 
-import com.download.PollResults;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.pollmanager.Choice;
-import com.pollmanager.Poll;
-import com.pollmanager.PollManager;
 import com.pollmanager.PollManagerException;
-import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.Marshaller;
+import com.useradm.UserAdministration;
+import com.usermanagementlayer.UserManagementImpl;
 
 import javax.xml.bind.JAXBException;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Writer;
-import java.util.Collection;
-import java.util.Enumeration;
-import java.util.Hashtable;
 
 
 
 public class Main {
 
-    public static void main(String[] args) throws PollManagerException, JAXBException, IOException, jakarta.xml.bind.JAXBException {
-        PollResults pollResultsXML = new PollResults();
+    public static void main(String[] args) throws PollManagerException, JAXBException, IOException {
+        /*PollResults pollResultsXML = new PollResults();
         PollManager pollManager = new PollManager();
         Poll poll = com.database.PollGateway.selectPollById("2MSR7YKQNV");
         Hashtable<Choice, Integer> pollResults = pollManager.getPollResults("2MSR7YKQNV");
@@ -63,9 +51,15 @@ public class Main {
         try(Writer writer = new FileWriter("Output.json")) {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             gson.toJson(pollResultsXML, writer);
+        }*/
+
+
+        UserAdministration userAdministration = new UserAdministration(new UserManagementImpl());
+        try {
+            userAdministration.signUp("mike", "mike lopez", "chirca.mircea@gmail.com" );
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
-
 
     }
 
