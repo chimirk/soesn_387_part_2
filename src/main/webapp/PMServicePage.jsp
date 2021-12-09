@@ -1,6 +1,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.pollmanager.*" %>
 <%@ page import="java.util.Objects" %>
+<%@ page import="com.databaseEG.helper.User" %>
 <%--
 <%@ page import="com.json.User" %>
 --%>
@@ -24,7 +25,7 @@
     String userID = "";
     String pollID = "";
 
-    com.databaseUM.helper.User user = (com.databaseUM.helper.User) session.getAttribute("loggedInUser");
+    User user = (User) session.getAttribute("loggedInUser");
     //User user = (User) session.getAttribute("loggedInUser");
     if (user != null) {
         userID = user.getUsername();

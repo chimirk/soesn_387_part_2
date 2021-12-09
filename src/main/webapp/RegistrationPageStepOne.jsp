@@ -7,7 +7,7 @@
 <%@ include file="components/header.jsp"%>
 <div class="container">
     <div class="d-flex align-items-center justify-content-center">
-        <form class="form-horizontal w-50 border border-3 rounded-3 border-primary p-4" action="${pageContext.request.contextPath}/ActivateAccountNewUser" method="post">
+        <form class="form-horizontal w-50 border border-3 rounded-3 border-primary p-4" action="${pageContext.request.contextPath}/SignUpP1Servlet" method="post">
             <% if (errors != null) { %>
             <div class="alert alert-danger" role="alert">
                 <ul>

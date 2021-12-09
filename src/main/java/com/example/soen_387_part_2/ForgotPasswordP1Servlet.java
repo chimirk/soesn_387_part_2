@@ -9,7 +9,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet(name = "ActivateAccountForgetPassword", value = "/ActivateAccountForgetPassword")
+@WebServlet(name = "ForgotPasswordP1Servlet", value = "/ForgotPasswordP1Servlet")
 public class ForgotPasswordP1Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

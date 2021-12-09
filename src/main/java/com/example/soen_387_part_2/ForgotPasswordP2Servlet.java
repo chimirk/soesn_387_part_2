@@ -8,6 +8,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 @WebServlet(name = "ForgotPasswordP2Servlet", value = "/ForgotPasswordP2Servlet")
@@ -44,7 +45,7 @@ public class ForgotPasswordP2Servlet extends HttpServlet {
                 String destination = "login_page.jsp";
                 RequestDispatcher dispatcher = request.getRequestDispatcher(destination);
                 dispatcher.forward(request, response);
-            } catch (UserManagementException e) {
+            } catch (UserManagementException | NoSuchAlgorithmException e) {
                 if (e.getMessage().equals("password or username is empty or null")) {
                     errors.add("password or username is empty or null");
                     request.setAttribute("errors", errors);

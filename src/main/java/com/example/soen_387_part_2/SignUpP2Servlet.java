@@ -13,7 +13,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
-@WebServlet(name = "ActivateNewUserPartTwoServlet", value = "/ActivateNewUserPartTwoServlet")
+@WebServlet(name = "SignUpP2Servlet", value = "/SignUpP2Servlet")
 public class SignUpP2Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -60,7 +60,7 @@ public class SignUpP2Servlet extends HttpServlet {
                 String destination = "login_page.jsp";
                 RequestDispatcher dispatcher = request.getRequestDispatcher(destination);
                 dispatcher.forward(request, response);
-            } catch (UserManagementException e) {
+            } catch (UserManagementException | NoSuchAlgorithmException e) {
                 if (e.getMessage().equals("password or username is empty or null")) {
                     errors.add("password or username is empty or null");
                     request.setAttribute("errors", errors);

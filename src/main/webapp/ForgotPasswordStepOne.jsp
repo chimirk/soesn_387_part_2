@@ -7,7 +7,7 @@
 <%@ include file="components/header.jsp"%>
 <div class="container">
     <div class="d-flex align-items-center justify-content-center">
-        <form class="form-horizontal w-50 border border-3 rounded-3 border-primary p-4" action="${pageContext.request.contextPath}/ActivateAccountForgetPassword" method="post">
+        <form class="form-horizontal w-50 border border-3 rounded-3 border-primary p-4" action="${pageContext.request.contextPath}/ForgotPasswordP1Servlet" method="post">
             <% if (errors != null) { %>
             <div class="alert alert-danger" role="alert">
                 <ul>
@@ -17,7 +17,7 @@
                 </ul>
             </div>
             <% } %>
-            <h1 class=" display-5 text-center">Forgot Password Page Step 1</h1>
+            <h1 class=" display-5 text-center">Forgot Password: Account Verification</h1>
             <div class="form-group mt-2 mb-3">
                 <label class="control-label fs-3" for="fp_email">Email</label>
                 <input class="form-control" type="email" placeholder="Enter the email related to your account" id="fp_email" name="fp_email" required />

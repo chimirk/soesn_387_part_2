@@ -30,6 +30,9 @@
                     </li>
                 <% } %>
                 <% if(session.getAttribute("loggedInUser") != null) { %>
+                    <form action="${pageContext.request.contextPath}/ChangePassServlet" method="post">
+                        <button type="submit" class="btn btn-info" name="change_password_btn">Change Password</button>
+                    </form>
                     <form action="${pageContext.request.contextPath}/LogoutServlet" method="post">
                         <button type="submit" class="btn btn-danger">Logout</button>
                     </form>

@@ -1,6 +1,6 @@
 package com.example.soen_387_part_2;
 
-import com.databaseUM.helper.User;
+import com.databaseEG.helper.User;
 import com.useradm.UserAdministration;
 import com.usermanagementlayer.UserManagementImpl;
 

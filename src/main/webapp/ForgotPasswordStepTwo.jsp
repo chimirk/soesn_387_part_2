@@ -27,7 +27,7 @@
                 </ul>
             </div>
             <% } %>
-            <h1 class=" display-5 text-center">Forgot Password Page Step Two</h1>
+            <h1 class=" display-5 text-center">Forgot Password: Enter New Password</h1>
             <% if (userName != null) { %>
             <input type="hidden" name="userName" value="<%= userName%>">
             <% } %>
@@ -43,7 +43,7 @@
                 <input class="form-control" id="fp_password_two" type="password" placeholder="Repeat Password" name="fp_password_two" required/>
             </div>
             <div class="d-grid gap-2 col-6 mx-auto">
-                <button class="btn btn-primary" type="submit" name="save_password_btn" >Complete Registration</button>
+                <button class="btn btn-primary" type="submit" name="save_password_btn" >Register New Password</button>
             </div>
             <br/>
         </form>
