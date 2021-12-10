@@ -6,7 +6,7 @@
 Student Name | Student ID
 ------------ | ----------
 Pierrick Catalo | 40087503
-Israt Noor Kazi | 40029299
+Israt Noor Kazi (Leader) | 40029299
 Mircea Chirca | 40004027
 
 ## Application Description
