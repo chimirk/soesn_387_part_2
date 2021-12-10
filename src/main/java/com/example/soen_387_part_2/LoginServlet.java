@@ -33,7 +33,6 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserAdministration userAdministration = new UserAdministration(new UserManagementImpl());
-        //String url = this.getClass().getClassLoader().getResource("/users.json").getPath().replace("%20"," ");
         String username = "";
         String userpassword = "";
         ArrayList<String> errors = new ArrayList();
